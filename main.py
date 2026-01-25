@@ -1,10 +1,10 @@
+from evaluation.metrics import AnswerEvaluator
+from agent.reflector import Reflector
+from agent.agent_loop import AgentLoop
 from agent.planner import Planner
 from agent.executor import Executor
-from agent.agent_loop import AgentLoop
-from agent.reflector import Reflector
 from tools.rag_tool import RAGTool
-
-from generation.rag_chain import ask_rag
+from generation.rag_chain import ask_rag  
 
 def main():
     rag_tool = RAGTool(ask_rag)
@@ -12,11 +12,13 @@ def main():
     planner = Planner()
     executor = Executor(rag_tool)
     reflector = Reflector()
+    evaluator = AnswerEvaluator()
 
     agent = AgentLoop(
         planner=planner,
         executor=executor,
         reflector=reflector,
+        evaluator=evaluator,
         max_retries=2
     )
 
@@ -25,8 +27,12 @@ def main():
         if query.lower() == "exit":
             break
 
-        response = agent.run(query)
-        print("\nAgent Response:\n", response)
+        result = agent.run(query)
+
+        print("\nAgent Answer:\n", result["answer"])
+        print("\nEvaluation Scores:")
+        for k, v in result["evaluation"].items():
+            print(f"  {k}: {v:.2f}")
 
 
 if __name__ == "__main__":
