@@ -1,0 +1,6 @@
+agent:
+  max_retries: 2
+  reflection_enabled: true
+
+rag:
+  top_k: 4
