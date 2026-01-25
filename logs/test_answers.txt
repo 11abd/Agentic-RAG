@@ -1,0 +1,12 @@
+Question: What are the production dos for RAG?
+Answer:
+The production dos for RAG include starting simple, iterating based on metrics, using metadata filtering (product, language, permissions), combining vector + keyword search (hybrid approach), monitoring retrieval quality (recall@k, precision), keeping embeddings synchronized with documents, and evaluating with domain-specific questions.
+--------------------------------------------------------------------------------
+Question: What is the difference between standard retrieval and the ColPali approach?
+Answer:
+The context does not explicitly define "ColPali" approach. However, based on the surrounding information about using metadata filtering, vector search, keyword search, and recursive approaches for improving retrieval quality in a RAC system, it seems that ColPali might be a hybrid approach combining vector and keyword searches as mentioned in the text. Without more specific context or clarification from the original source, I can't provide an accurate comparison between standard retrieval and the ColPali approach.
+--------------------------------------------------------------------------------
+Question: Why is hybrid search better than vector-only search?
+Answer:
+Hybrid search is better than vector-only search because it reduces retrieval failures by 67%. In comparison, vector-only search has a baseline failure rate of 5.7%. Additionally, when combined with a reranker, hybrid search shows a significant improvement in NDCG@3, increasing from 43.8% (vector-only) to 60.1% (+37.2%). This suggests that the combination of vector and BM25 search methods provides better results than using just one method alone.
+--------------------------------------------------------------------------------
