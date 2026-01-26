@@ -1,101 +1,129 @@
-# RAG Chatbot – PDFs + Lecture Videos
+# Agentic RAG System with Autonomous Reasoning and Self-Reflection
 
-An end-to-end Retrieval-Augmented Generation (RAG) chatbot built from scratch using
-PDF lecture slides and recorded lecture videos as a multi-modal knowledge base.
+## Overview
+This project extends a traditional Retrieval-Augmented Generation (RAG) chatbot
+by adding an **agentic control layer** capable of autonomous reasoning, tool-calling,
+self-reflection, and answer quality evaluation.
 
-The system supports document-grounded question answering using hybrid retrieval
-(vector + keyword search) and a local LLM, with no paid APIs.
-
----
-
-## 🚀 Features
-
-- Multi-modal ingestion (PDFs + lecture videos)
-- Audio transcription using Whisper (CPU-only)
-- Semantic chunking and embedding
-- Persistent vector storage using ChromaDB
-- Hybrid retrieval (Vector + BM25)
-- Grounded answer generation using a local LLM (Ollama + Mistral)
-- Fully reproducible, local-first pipeline
+The system is **data-agnostic** — any data placed inside the `data/` directory
+(PDFs, transcripts, text files) can be used without changing agent logic.
 
 ---
 
-## 🧠 Architecture
+## Problem Statement
+Standard RAG chatbots blindly retrieve documents for every query and may:
+- return shallow or irrelevant answers
+- hallucinate when data is missing
+- lack transparency on answer quality
 
-PDFs / Videos
-↓
-Text Extraction & Transcription
-↓
-Cleaning & Chunking
-↓
-Embeddings (Sentence Transformers)
-↓
-Vector DB (ChromaDB)
-↓
-Hybrid Retrieval (Vector + BM25)
-↓
-LLM Generation (Ollama)
+This project addresses these limitations by introducing an **AI agent layer**
+that controls how and when retrieval happens, evaluates its own responses,
+and transparently reports answer quality.
 
 ---
 
-## 🛠️ Tech Stack
+## System Architecture (High Level)
+The system follows a modular agentic design:
 
-- Python
-- Whisper (open-source)
-- Sentence Transformers
-- ChromaDB
-- BM25 (rank-bm25)
-- Ollama (Mistral)
-- VS Code, Windows CMD
+User Query  
+→ Agent Planner (decides action)  
+→ Tool Executor (calls RAG if needed)  
+→ Self-Reflection (retry if answer is weak)  
+→ Evaluation (scores answer quality)  
+→ Final Response  
 
 ---
 
-## ▶️ How to Run
+## Key Features
+- **RAG as a Tool**: Retrieval is abstracted and invoked only when required
+- **Autonomous Planning**: Agent decides how to handle each query
+- **Self-Reflection Loop**: Weak or ungrounded answers trigger retries
+- **Evaluation Metrics**: Measures clarity, grounding, and answer completeness
+- **No Hallucination**: If data does not support an answer, the agent declines safely
+- **Framework-Agnostic**: Implemented without heavy agent frameworks for clarity
 
-### 1. Create environment
-```cmd
+---
+
+## Project Structure
+agentic-rag/
+│
+├── agent/ # Planner, executor, reflector, agent loop
+├── tools/ # RAG tool abstraction
+├── evaluation/ # Answer evaluation metrics
+├── data/ # User-provided data (PDFs, text, etc.)
+├── config/ # Configurations
+├── main.py # Entry point
+└── README.md
+
+
+---
+
+## How to Run
+
+### 1. Create Virtual Environment
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
+### 2. Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-### 2. Install Ollama & model
-ollama pull mistral
+### 3. Add Your Data
 
-###3. Run the chatbot
-python app.py
+Place documents inside:
+```bash
+3. data/
+```
 
-Answers will be printed in the terminal and saved to:
+### 4. Run the Agent
+```bash
+python main.py
+```
 
-logs/test_answers.txt
+### Evaluation Metrics
 
----
+Each response is evaluated using simple, transparent metrics:
 
-📊 Evaluation
+Length Score – response completeness
 
-The system was evaluated using predefined lecture questions.
-Retrieval quality was assessed via human-in-the-loop analysis
-(Recall@k and ranking relevance).
+Clarity Score – confidence and certainty
 
-Hybrid retrieval significantly improved recall for keyword-heavy
-queries, while sparse concepts were identified as known limitations
-without metadata enrichment.
+Grounding Score – support from retrieved data
 
-
-🔍 Example Questions
-
-What are the production do’s for RAG?
-
-What is the difference between standard retrieval and the ColPali approach?
-
-Why is hybrid search better than vector-only search?
+These metrics are used for inspection, not forced optimization.
 
 
-📌 Notes
+## Why This Is Agentic (Not Just RAG)
 
-Runs fully locally (CPU-only)
+Unlike standard RAG systems, this project:
 
-No paid APIs required
+reasons before retrieval
 
-Vector DB can be rebuilt at any time
+treats RAG as a callable tool
 
-Easily extensible with new PDFs or videos
+evaluates its own outputs
+
+retries automatically when answers are weak
+
+This design reflects how modern production AI agents are built.
+
+## Future Improvements
+
+LangGraph wrapper (optional)
+
+Logging and monitoring
+
+UI or API interface
+
+Advanced evaluation metrics
+
+
+
+### Author
+
+Built as part of the AI Academy Capstone Project to demonstrate
+end-to-end agentic AI system design.
+
+Abdul Rahaman S | AI/ML Engineer
