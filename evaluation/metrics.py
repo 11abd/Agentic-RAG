@@ -1,3 +1,5 @@
+from utils.logger import logger
+
 class AnswerEvaluator:
     def __init__(self, min_length=50):
         self.min_length = min_length
@@ -10,6 +12,7 @@ class AnswerEvaluator:
         }
 
         if not answer:
+            logger.info("Evaluator | EMPTY_ANSWER | scores=all_zero")
             return scores
 
         text = answer.strip().lower()
@@ -32,5 +35,7 @@ class AnswerEvaluator:
         # 3. Grounding score (very simple heuristic)
         grounding_penalty = "context" in text and "not" in text
         scores["grounding_score"] = 0.0 if grounding_penalty else 1.0
+
+        logger.info(f"Evaluator | scores={scores}")
 
         return scores

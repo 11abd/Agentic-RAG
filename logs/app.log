@@ -1,0 +1,123 @@
+2026-01-28 23:01:13,697 | INFO | Hybrid ranking completed
+2026-01-28 23:01:13,781 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-28 23:01:13,923 | INFO | Use pytorch device_name: cpu
+2026-01-28 23:01:13,923 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-28 23:01:24,716 | WARNING | '(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3b47b0ce-2090-4822-b29a-2ffa7f1e1feb)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/./README.md
+2026-01-28 23:01:24,718 | WARNING | Retrying in 1s [Retry 1/5].
+2026-01-28 23:01:57,797 | INFO | RAG query received
+2026-01-28 23:01:57,797 | INFO | Starting hybrid retrieval
+2026-01-28 23:01:57,903 | INFO | Vector retrieval completed
+2026-01-28 23:01:58,056 | INFO | BM25 retrieval completed
+2026-01-28 23:01:58,056 | INFO | Context retrieved
+2026-01-28 23:01:58,057 | INFO | Prompt constructed
+2026-01-28 23:01:58,057 | INFO | Sending prompt to Ollama
+2026-01-28 23:03:25,881 | INFO | Received response from Ollama
+2026-01-28 23:03:25,881 | INFO | Answer generated
+2026-01-28 23:08:59,516 | INFO | RAG query received
+2026-01-28 23:08:59,516 | INFO | Starting hybrid retrieval
+2026-01-28 23:08:59,535 | INFO | Vector retrieval completed
+2026-01-28 23:08:59,679 | INFO | BM25 retrieval completed
+2026-01-28 23:08:59,679 | INFO | Context retrieved
+2026-01-28 23:08:59,679 | INFO | Prompt constructed
+2026-01-28 23:08:59,679 | INFO | Sending prompt to Ollama
+2026-01-28 23:10:09,591 | INFO | Received response from Ollama
+2026-01-28 23:10:09,591 | INFO | Answer generated
+2026-01-28 23:23:01,848 | INFO | Hybrid ranking completed
+2026-01-28 23:23:01,882 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-28 23:23:01,999 | INFO | Use pytorch device_name: cpu
+2026-01-28 23:23:01,999 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-28 23:23:36,643 | INFO | AgentLoop | query_received='tell me '
+2026-01-28 23:23:36,643 | INFO | AgentLoop | attempt=0
+2026-01-28 23:23:36,643 | INFO | Planner | decision=direct_answer | query='tell me '
+2026-01-28 23:23:36,643 | INFO | Executor | action=direct_answer
+2026-01-28 23:23:36,643 | INFO | Executor | direct_answer_path
+2026-01-28 23:23:36,643 | INFO | Reflector | PASS
+2026-01-28 23:23:36,643 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 1.0, 'grounding_score': 1.0}
+2026-01-28 23:23:36,643 | INFO | AgentLoop | completed
+2026-01-28 23:24:09,903 | INFO | AgentLoop | query_received='what is mean by agentic Rag'
+2026-01-28 23:24:09,904 | INFO | AgentLoop | attempt=0
+2026-01-28 23:24:09,904 | INFO | Planner | decision=use_rag | query='what is mean by agentic Rag'
+2026-01-28 23:24:09,904 | INFO | Executor | action=use_rag
+2026-01-28 23:24:09,904 | INFO | RAGTool | start | query='what is mean by agentic Rag'
+2026-01-28 23:24:09,904 | INFO | RAG query received
+2026-01-28 23:24:09,904 | INFO | Starting hybrid retrieval
+2026-01-28 23:24:10,012 | INFO | Vector retrieval completed
+2026-01-28 23:24:10,165 | INFO | BM25 retrieval completed
+2026-01-28 23:24:10,165 | INFO | Context retrieved
+2026-01-28 23:24:10,165 | INFO | Prompt constructed
+2026-01-28 23:24:10,165 | INFO | Sending prompt to Ollama
+2026-01-28 23:25:10,076 | INFO | Received response from Ollama
+2026-01-28 23:25:10,077 | INFO | Answer generated
+2026-01-28 23:25:10,077 | INFO | RAGTool | end | time_taken=60.17s
+2026-01-28 23:25:10,077 | INFO | Reflector | FAIL | reason=signal_detected | signal='i don't know'
+2026-01-28 23:25:10,077 | INFO | AgentLoop | retry_triggered
+2026-01-28 23:25:10,077 | INFO | AgentLoop | attempt=1
+2026-01-28 23:25:10,077 | INFO | Planner | decision=use_rag | query='what is mean by agentic Rag'
+2026-01-28 23:25:10,077 | INFO | Executor | action=use_rag
+2026-01-28 23:25:10,077 | INFO | RAGTool | start | query='what is mean by agentic Rag'
+2026-01-28 23:25:10,077 | INFO | RAG query received
+2026-01-28 23:25:10,077 | INFO | Starting hybrid retrieval
+2026-01-28 23:25:10,093 | INFO | Vector retrieval completed
+2026-01-28 23:25:10,351 | INFO | BM25 retrieval completed
+2026-01-28 23:25:10,351 | INFO | Context retrieved
+2026-01-28 23:25:10,351 | INFO | Prompt constructed
+2026-01-28 23:25:10,351 | INFO | Sending prompt to Ollama
+2026-01-28 23:25:18,125 | INFO | Received response from Ollama
+2026-01-28 23:25:18,125 | INFO | Answer generated
+2026-01-28 23:25:18,125 | INFO | RAGTool | end | time_taken=8.05s
+2026-01-28 23:25:18,127 | INFO | Reflector | FAIL | reason=signal_detected | signal='i don't know'
+2026-01-28 23:25:18,127 | INFO | AgentLoop | retry_triggered
+2026-01-28 23:25:18,127 | INFO | AgentLoop | attempt=2
+2026-01-28 23:25:18,127 | INFO | Planner | decision=use_rag | query='what is mean by agentic Rag'
+2026-01-28 23:25:18,127 | INFO | Executor | action=use_rag
+2026-01-28 23:25:18,127 | INFO | RAGTool | start | query='what is mean by agentic Rag'
+2026-01-28 23:25:18,127 | INFO | RAG query received
+2026-01-28 23:25:18,127 | INFO | Starting hybrid retrieval
+2026-01-28 23:25:18,145 | INFO | Vector retrieval completed
+2026-01-28 23:25:18,353 | INFO | BM25 retrieval completed
+2026-01-28 23:25:18,353 | INFO | Context retrieved
+2026-01-28 23:25:18,353 | INFO | Prompt constructed
+2026-01-28 23:25:18,353 | INFO | Sending prompt to Ollama
+2026-01-28 23:25:24,022 | INFO | Received response from Ollama
+2026-01-28 23:25:24,022 | INFO | Answer generated
+2026-01-28 23:25:24,022 | INFO | RAGTool | end | time_taken=5.89s
+2026-01-28 23:25:24,023 | INFO | Reflector | FAIL | reason=signal_detected | signal='i don't know'
+2026-01-28 23:25:24,023 | INFO | AgentLoop | retry_triggered
+2026-01-28 23:25:24,023 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 0.0, 'grounding_score': 0.0}
+2026-01-28 23:25:24,023 | INFO | AgentLoop | completed
+2026-01-28 23:26:21,864 | INFO | AgentLoop | query_received='tell me about metadata filtering'
+2026-01-28 23:26:21,864 | INFO | AgentLoop | attempt=0
+2026-01-28 23:26:21,865 | INFO | Planner | decision=use_rag | query='tell me about metadata filtering'
+2026-01-28 23:26:21,865 | INFO | Executor | action=use_rag
+2026-01-28 23:26:21,865 | INFO | RAGTool | start | query='tell me about metadata filtering'
+2026-01-28 23:26:21,865 | INFO | RAG query received
+2026-01-28 23:26:21,865 | INFO | Starting hybrid retrieval
+2026-01-28 23:26:21,916 | INFO | Vector retrieval completed
+2026-01-28 23:26:22,071 | INFO | BM25 retrieval completed
+2026-01-28 23:26:22,071 | INFO | Context retrieved
+2026-01-28 23:26:22,071 | INFO | Prompt constructed
+2026-01-28 23:26:22,071 | INFO | Sending prompt to Ollama
+2026-01-28 23:27:17,162 | INFO | Received response from Ollama
+2026-01-28 23:27:17,162 | INFO | Answer generated
+2026-01-28 23:27:17,162 | INFO | RAGTool | end | time_taken=55.3s
+2026-01-28 23:27:17,165 | INFO | Reflector | PASS
+2026-01-28 23:27:17,165 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 1.0, 'grounding_score': 1.0}
+2026-01-28 23:27:17,165 | INFO | AgentLoop | completed
+2026-01-28 23:28:22,230 | INFO | AgentLoop | query_received='what things to keep in mind while building an RAG system'
+2026-01-28 23:28:22,230 | INFO | AgentLoop | attempt=0
+2026-01-28 23:28:22,230 | INFO | Planner | decision=use_rag | query='what things to keep in mind while building an RAG system'
+2026-01-28 23:28:22,230 | INFO | Executor | action=use_rag
+2026-01-28 23:28:22,230 | INFO | RAGTool | start | query='what things to keep in mind while building an RAG system'
+2026-01-28 23:28:22,230 | INFO | RAG query received
+2026-01-28 23:28:22,230 | INFO | Starting hybrid retrieval
+2026-01-28 23:28:22,277 | INFO | Vector retrieval completed
+2026-01-28 23:28:22,406 | INFO | BM25 retrieval completed
+2026-01-28 23:28:22,406 | INFO | Context retrieved
+2026-01-28 23:28:22,406 | INFO | Prompt constructed
+2026-01-28 23:28:22,406 | INFO | Sending prompt to Ollama
+2026-01-28 23:29:27,573 | INFO | Received response from Ollama
+2026-01-28 23:29:27,573 | INFO | Answer generated
+2026-01-28 23:29:27,575 | INFO | RAGTool | end | time_taken=65.34s
+2026-01-28 23:29:27,575 | INFO | Reflector | PASS
+2026-01-28 23:29:27,575 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 1.0, 'grounding_score': 0.0}
+2026-01-28 23:29:27,575 | INFO | AgentLoop | completed
