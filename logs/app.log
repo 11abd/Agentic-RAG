@@ -121,3 +121,131 @@
 2026-01-28 23:29:27,575 | INFO | Reflector | PASS
 2026-01-28 23:29:27,575 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 1.0, 'grounding_score': 0.0}
 2026-01-28 23:29:27,575 | INFO | AgentLoop | completed
+2026-01-28 23:45:44,902 | INFO | Hybrid ranking completed
+2026-01-28 23:45:44,946 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-28 23:45:45,073 | INFO | Use pytorch device_name: cpu
+2026-01-28 23:45:45,073 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-28 23:45:48,706 | INFO | Initializing Agent components
+2026-01-28 23:46:34,220 | INFO | API | query_received='what do you call a best rag system'
+2026-01-28 23:46:34,220 | INFO | AgentLoop | query_received='what do you call a best rag system'
+2026-01-28 23:46:34,220 | INFO | AgentLoop | attempt=0
+2026-01-28 23:46:34,220 | INFO | Planner | decision=use_rag | query='what do you call a best rag system'
+2026-01-28 23:46:34,220 | INFO | Executor | action=use_rag
+2026-01-28 23:46:34,220 | INFO | RAGTool | start | query='what do you call a best rag system'
+2026-01-28 23:46:34,220 | INFO | RAG query received
+2026-01-28 23:46:34,220 | INFO | Starting hybrid retrieval
+2026-01-28 23:46:34,294 | INFO | Vector retrieval completed
+2026-01-28 23:46:34,497 | INFO | BM25 retrieval completed
+2026-01-28 23:46:34,497 | INFO | Context retrieved
+2026-01-28 23:46:34,497 | INFO | Prompt constructed
+2026-01-28 23:46:34,497 | INFO | Sending prompt to Ollama
+2026-01-28 23:47:37,959 | INFO | Received response from Ollama
+2026-01-28 23:47:37,959 | INFO | Answer generated
+2026-01-28 23:47:37,961 | INFO | RAGTool | end | time_taken=63.74s
+2026-01-28 23:47:37,961 | INFO | Reflector | FAIL | reason=signal_detected | signal='does not provide'
+2026-01-28 23:47:37,961 | INFO | AgentLoop | retry_triggered
+2026-01-28 23:47:37,961 | INFO | AgentLoop | attempt=1
+2026-01-28 23:47:37,961 | INFO | Planner | decision=use_rag | query='what do you call a best rag system'
+2026-01-28 23:47:37,961 | INFO | Executor | action=use_rag
+2026-01-28 23:47:37,961 | INFO | RAGTool | start | query='what do you call a best rag system'
+2026-01-28 23:47:37,962 | INFO | RAG query received
+2026-01-28 23:47:37,962 | INFO | Starting hybrid retrieval
+2026-01-28 23:47:37,978 | INFO | Vector retrieval completed
+2026-01-28 23:47:38,217 | INFO | BM25 retrieval completed
+2026-01-28 23:47:38,217 | INFO | Context retrieved
+2026-01-28 23:47:38,217 | INFO | Prompt constructed
+2026-01-28 23:47:38,217 | INFO | Sending prompt to Ollama
+2026-01-28 23:47:50,881 | INFO | Received response from Ollama
+2026-01-28 23:47:50,881 | INFO | Answer generated
+2026-01-28 23:47:50,881 | INFO | RAGTool | end | time_taken=12.92s
+2026-01-28 23:47:50,881 | INFO | Reflector | FAIL | reason=signal_detected | signal='does not provide'
+2026-01-28 23:47:50,883 | INFO | AgentLoop | retry_triggered
+2026-01-28 23:47:50,883 | INFO | AgentLoop | attempt=2
+2026-01-28 23:47:50,883 | INFO | Planner | decision=use_rag | query='what do you call a best rag system'
+2026-01-28 23:47:50,883 | INFO | Executor | action=use_rag
+2026-01-28 23:47:50,883 | INFO | RAGTool | start | query='what do you call a best rag system'
+2026-01-28 23:47:50,883 | INFO | RAG query received
+2026-01-28 23:47:50,883 | INFO | Starting hybrid retrieval
+2026-01-28 23:47:50,905 | INFO | Vector retrieval completed
+2026-01-28 23:47:51,147 | INFO | BM25 retrieval completed
+2026-01-28 23:47:51,147 | INFO | Context retrieved
+2026-01-28 23:47:51,147 | INFO | Prompt constructed
+2026-01-28 23:47:51,147 | INFO | Sending prompt to Ollama
+2026-01-28 23:48:05,305 | INFO | Received response from Ollama
+2026-01-28 23:48:05,305 | INFO | Answer generated
+2026-01-28 23:48:05,305 | INFO | RAGTool | end | time_taken=14.42s
+2026-01-28 23:48:05,305 | INFO | Reflector | FAIL | reason=signal_detected | signal='does not provide'
+2026-01-28 23:48:05,306 | INFO | AgentLoop | retry_triggered
+2026-01-28 23:48:05,306 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 0.0, 'grounding_score': 0.0}
+2026-01-28 23:48:05,306 | INFO | AgentLoop | completed
+2026-01-28 23:49:27,874 | INFO | API | query_received='who is the lecturer and tell me about him/her'
+2026-01-28 23:49:27,874 | INFO | AgentLoop | query_received='who is the lecturer and tell me about him/her'
+2026-01-28 23:49:27,874 | INFO | AgentLoop | attempt=0
+2026-01-28 23:49:27,874 | INFO | Planner | decision=use_rag | query='who is the lecturer and tell me about him/her'
+2026-01-28 23:49:27,874 | INFO | Executor | action=use_rag
+2026-01-28 23:49:27,874 | INFO | RAGTool | start | query='who is the lecturer and tell me about him/her'
+2026-01-28 23:49:27,874 | INFO | RAG query received
+2026-01-28 23:49:27,874 | INFO | Starting hybrid retrieval
+2026-01-28 23:49:27,896 | INFO | Vector retrieval completed
+2026-01-28 23:49:28,079 | INFO | BM25 retrieval completed
+2026-01-28 23:49:28,080 | INFO | Context retrieved
+2026-01-28 23:49:28,080 | INFO | Prompt constructed
+2026-01-28 23:49:28,080 | INFO | Sending prompt to Ollama
+2026-01-28 23:50:20,611 | INFO | Received response from Ollama
+2026-01-28 23:50:20,611 | INFO | Answer generated
+2026-01-28 23:50:20,611 | INFO | RAGTool | end | time_taken=52.74s
+2026-01-28 23:50:20,613 | INFO | Reflector | FAIL | reason=signal_detected | signal='i don't know'
+2026-01-28 23:50:20,613 | INFO | AgentLoop | retry_triggered
+2026-01-28 23:50:20,613 | INFO | AgentLoop | attempt=1
+2026-01-28 23:50:20,613 | INFO | Planner | decision=use_rag | query='who is the lecturer and tell me about him/her'
+2026-01-28 23:50:20,613 | INFO | Executor | action=use_rag
+2026-01-28 23:50:20,613 | INFO | RAGTool | start | query='who is the lecturer and tell me about him/her'
+2026-01-28 23:50:20,613 | INFO | RAG query received
+2026-01-28 23:50:20,613 | INFO | Starting hybrid retrieval
+2026-01-28 23:50:20,629 | INFO | Vector retrieval completed
+2026-01-28 23:50:20,870 | INFO | BM25 retrieval completed
+2026-01-28 23:50:20,870 | INFO | Context retrieved
+2026-01-28 23:50:20,870 | INFO | Prompt constructed
+2026-01-28 23:50:20,870 | INFO | Sending prompt to Ollama
+2026-01-28 23:50:25,683 | INFO | Received response from Ollama
+2026-01-28 23:50:25,683 | INFO | Answer generated
+2026-01-28 23:50:25,683 | INFO | RAGTool | end | time_taken=5.07s
+2026-01-28 23:50:25,683 | INFO | Reflector | FAIL | reason=signal_detected | signal='i don't know'
+2026-01-28 23:50:25,684 | INFO | AgentLoop | retry_triggered
+2026-01-28 23:50:25,684 | INFO | AgentLoop | attempt=2
+2026-01-28 23:50:25,684 | INFO | Planner | decision=use_rag | query='who is the lecturer and tell me about him/her'
+2026-01-28 23:50:25,684 | INFO | Executor | action=use_rag
+2026-01-28 23:50:25,684 | INFO | RAGTool | start | query='who is the lecturer and tell me about him/her'
+2026-01-28 23:50:25,684 | INFO | RAG query received
+2026-01-28 23:50:25,684 | INFO | Starting hybrid retrieval
+2026-01-28 23:50:25,703 | INFO | Vector retrieval completed
+2026-01-28 23:50:25,964 | INFO | BM25 retrieval completed
+2026-01-28 23:50:25,964 | INFO | Context retrieved
+2026-01-28 23:50:25,964 | INFO | Prompt constructed
+2026-01-28 23:50:25,964 | INFO | Sending prompt to Ollama
+2026-01-28 23:50:37,925 | INFO | Received response from Ollama
+2026-01-28 23:50:37,925 | INFO | Answer generated
+2026-01-28 23:50:37,927 | INFO | RAGTool | end | time_taken=12.24s
+2026-01-28 23:50:37,927 | INFO | Reflector | FAIL | reason=signal_detected | signal='i don't know'
+2026-01-28 23:50:37,927 | INFO | AgentLoop | retry_triggered
+2026-01-28 23:50:37,927 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 0.0, 'grounding_score': 0.0}
+2026-01-28 23:50:37,927 | INFO | AgentLoop | completed
+2026-01-28 23:53:27,229 | INFO | API | query_received='what is a vector database'
+2026-01-28 23:53:27,229 | INFO | AgentLoop | query_received='what is a vector database'
+2026-01-28 23:53:27,229 | INFO | AgentLoop | attempt=0
+2026-01-28 23:53:27,229 | INFO | Planner | decision=use_rag | query='what is a vector database'
+2026-01-28 23:53:27,229 | INFO | Executor | action=use_rag
+2026-01-28 23:53:27,229 | INFO | RAGTool | start | query='what is a vector database'
+2026-01-28 23:53:27,229 | INFO | RAG query received
+2026-01-28 23:53:27,229 | INFO | Starting hybrid retrieval
+2026-01-28 23:53:27,292 | INFO | Vector retrieval completed
+2026-01-28 23:53:27,466 | INFO | BM25 retrieval completed
+2026-01-28 23:53:27,466 | INFO | Context retrieved
+2026-01-28 23:53:27,466 | INFO | Prompt constructed
+2026-01-28 23:53:27,466 | INFO | Sending prompt to Ollama
+2026-01-28 23:54:25,216 | INFO | Received response from Ollama
+2026-01-28 23:54:25,216 | INFO | Answer generated
+2026-01-28 23:54:25,216 | INFO | RAGTool | end | time_taken=57.99s
+2026-01-28 23:54:25,216 | INFO | Reflector | PASS
+2026-01-28 23:54:25,219 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 1.0, 'grounding_score': 1.0}
+2026-01-28 23:54:25,219 | INFO | AgentLoop | completed

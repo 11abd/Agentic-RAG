@@ -82,6 +82,25 @@ Place documents inside:
 python main.py
 ```
 
+### 5. Start the API Server
+```bash
+uvicorn api.app:app --host 0.0.0.0 --port 8000
+```
+
+then we can interact with out chatbot from web
+```bash
+http://127.0.0.1:8000/docs
+```
+
+Example request : 
+```bash
+{
+  "question": "Tell me about hybrid retrieval?"
+}
+```
+
+
+
 ### Evaluation Metrics
 
 Each response is evaluated using simple, transparent metrics:
@@ -112,10 +131,6 @@ This design reflects how modern production AI agents are built.
 ## Future Improvements
 
 LangGraph wrapper (optional)
-
-Logging and monitoring
-
-UI or API interface
 
 Advanced evaluation metrics
 
