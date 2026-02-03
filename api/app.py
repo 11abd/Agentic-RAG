@@ -8,6 +8,7 @@ from agent.reflector import Reflector
 from evaluation.metrics import AnswerEvaluator
 from tools.rag_tool import RAGTool
 from generation.rag_chain import ask_rag
+from rag_pipeline import run_rag_pipeline
 
 from utils.logger import logger
 
@@ -56,3 +57,11 @@ def query_agent(request: QueryRequest):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+
+# ---------- Run pipeline  ----------
+@app.post("/pipeline/run")
+def run_pipeline():
+    run_rag_pipeline()
+    return {"status": "success"}

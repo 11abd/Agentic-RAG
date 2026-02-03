@@ -249,3 +249,172 @@
 2026-01-28 23:54:25,216 | INFO | Reflector | PASS
 2026-01-28 23:54:25,219 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 1.0, 'grounding_score': 1.0}
 2026-01-28 23:54:25,219 | INFO | AgentLoop | completed
+2026-02-03 01:56:28,087 | INFO | RAG PIPELINE STARTED
+2026-02-03 01:56:28,167 | INFO | PDF extraction completed
+2026-02-03 01:58:32,978 | INFO | RAG PIPELINE STARTED
+2026-02-03 01:58:33,024 | INFO | PDF extraction completed
+2026-02-03 01:58:33,194 | INFO | Audio extraction completed
+2026-02-03 01:58:45,674 | INFO | Audio transcription completed
+2026-02-03 01:58:45,750 | INFO | Text cleaning & merging completed
+2026-02-03 02:06:08,619 | INFO | RAG PIPELINE STARTED
+2026-02-03 02:06:08,668 | INFO | PDF extraction completed
+2026-02-03 02:06:08,817 | INFO | Audio extraction completed
+2026-02-03 02:06:21,444 | INFO | Audio transcription completed
+2026-02-03 02:06:21,485 | INFO | Text cleaning & merging completed
+2026-02-03 02:06:21,607 | INFO | Chunking completed | chunks=198
+2026-02-03 02:06:21,685 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-03 02:06:21,854 | INFO | Use pytorch device_name: cpu
+2026-02-03 02:06:21,854 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-03 02:11:25,181 | INFO | RAG PIPELINE STARTED
+2026-02-03 02:11:25,231 | INFO | PDF extraction completed
+2026-02-03 02:11:25,418 | INFO | Audio extraction completed
+2026-02-03 02:11:41,165 | INFO | Audio transcription completed
+2026-02-03 02:11:41,247 | INFO | Text cleaning & merging completed
+2026-02-03 02:11:41,516 | INFO | Chunking completed | chunks=265
+2026-02-03 02:11:41,568 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-03 02:11:41,715 | INFO | Use pytorch device_name: cpu
+2026-02-03 02:11:41,715 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-03 02:19:19,197 | INFO | RAG PIPELINE STARTED
+2026-02-03 02:19:19,244 | INFO | PDF extraction completed
+2026-02-03 02:19:19,399 | INFO | Audio extraction completed
+2026-02-03 02:19:31,937 | INFO | Audio transcription completed
+2026-02-03 02:19:31,957 | INFO | Text cleaning & merging completed
+2026-02-03 02:19:32,071 | INFO | Chunking completed | chunks=57
+2026-02-03 02:19:32,117 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-03 02:19:32,266 | INFO | Use pytorch device_name: cpu
+2026-02-03 02:19:32,266 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-03 02:21:31,843 | INFO | RAG PIPELINE STARTED
+2026-02-03 02:21:31,886 | INFO | PDF extraction completed
+2026-02-03 02:21:32,044 | INFO | Audio extraction completed
+2026-02-03 02:21:45,797 | INFO | Audio transcription completed
+2026-02-03 02:21:45,821 | INFO | Text cleaning & merging completed
+2026-02-03 02:21:45,886 | INFO | Chunking completed | chunks=57
+2026-02-03 02:21:45,945 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-03 02:21:46,127 | INFO | Use pytorch device_name: cpu
+2026-02-03 02:21:46,127 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-03 02:21:51,373 | INFO | Embeddings stored in ChromaDB
+2026-02-03 02:21:51,373 | INFO | RAG PIPELINE COMPLETED SUCCESSFULLY
+2026-02-03 02:23:30,968 | INFO | Hybrid ranking completed
+2026-02-03 02:23:31,003 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-03 02:23:31,104 | INFO | Use pytorch device_name: cpu
+2026-02-03 02:23:31,104 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-03 02:23:53,054 | INFO | AgentLoop | query_received='tell me about graphics port'
+2026-02-03 02:23:53,054 | INFO | AgentLoop | attempt=0
+2026-02-03 02:23:53,055 | INFO | Planner | decision=use_rag | query='tell me about graphics port'
+2026-02-03 02:23:53,055 | INFO | Executor | action=use_rag
+2026-02-03 02:23:53,055 | INFO | RAGTool | start | query='tell me about graphics port'
+2026-02-03 02:23:53,055 | INFO | RAG query received
+2026-02-03 02:23:53,055 | INFO | Starting hybrid retrieval
+2026-02-03 02:23:53,129 | INFO | Vector retrieval completed
+2026-02-03 02:23:53,281 | INFO | BM25 retrieval completed
+2026-02-03 02:23:53,281 | INFO | Context retrieved
+2026-02-03 02:23:53,281 | INFO | Prompt constructed
+2026-02-03 02:23:53,281 | INFO | Sending prompt to Ollama
+2026-02-03 02:25:02,742 | INFO | Received response from Ollama
+2026-02-03 02:25:02,742 | INFO | Answer generated
+2026-02-03 02:25:02,742 | INFO | RAGTool | end | time_taken=69.69s
+2026-02-03 02:25:02,742 | INFO | Reflector | PASS
+2026-02-03 02:25:02,745 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 1.0, 'grounding_score': 1.0}
+2026-02-03 02:25:02,745 | INFO | AgentLoop | completed
+2026-02-03 02:25:47,826 | INFO | AgentLoop | query_received='which is best vector DB for RAG'
+2026-02-03 02:25:47,827 | INFO | AgentLoop | attempt=0
+2026-02-03 02:25:47,827 | INFO | Planner | decision=use_rag | query='which is best vector DB for RAG'
+2026-02-03 02:25:47,827 | INFO | Executor | action=use_rag
+2026-02-03 02:25:47,827 | INFO | RAGTool | start | query='which is best vector DB for RAG'
+2026-02-03 02:25:47,828 | INFO | RAG query received
+2026-02-03 02:25:47,828 | INFO | Starting hybrid retrieval
+2026-02-03 02:25:47,841 | INFO | Vector retrieval completed
+2026-02-03 02:25:47,974 | INFO | BM25 retrieval completed
+2026-02-03 02:25:47,974 | INFO | Context retrieved
+2026-02-03 02:25:47,974 | INFO | Prompt constructed
+2026-02-03 02:25:47,974 | INFO | Sending prompt to Ollama
+2026-02-03 02:26:39,925 | INFO | Received response from Ollama
+2026-02-03 02:26:39,925 | INFO | Answer generated
+2026-02-03 02:26:39,926 | INFO | RAGTool | end | time_taken=52.1s
+2026-02-03 02:26:39,926 | INFO | Reflector | FAIL | reason=signal_detected | signal='i don't know'
+2026-02-03 02:26:39,926 | INFO | AgentLoop | retry_triggered
+2026-02-03 02:26:39,926 | INFO | AgentLoop | attempt=1
+2026-02-03 02:26:39,926 | INFO | Planner | decision=use_rag | query='which is best vector DB for RAG'
+2026-02-03 02:26:39,926 | INFO | Executor | action=use_rag
+2026-02-03 02:26:39,926 | INFO | RAGTool | start | query='which is best vector DB for RAG'
+2026-02-03 02:26:39,927 | INFO | RAG query received
+2026-02-03 02:26:39,927 | INFO | Starting hybrid retrieval
+2026-02-03 02:26:39,942 | INFO | Vector retrieval completed
+2026-02-03 02:26:40,194 | INFO | BM25 retrieval completed
+2026-02-03 02:26:40,194 | INFO | Context retrieved
+2026-02-03 02:26:40,194 | INFO | Prompt constructed
+2026-02-03 02:26:40,194 | INFO | Sending prompt to Ollama
+2026-02-03 02:26:52,189 | INFO | Received response from Ollama
+2026-02-03 02:26:52,189 | INFO | Answer generated
+2026-02-03 02:26:52,189 | INFO | RAGTool | end | time_taken=12.26s
+2026-02-03 02:26:52,189 | INFO | Reflector | FAIL | reason=signal_detected | signal='i don't know'
+2026-02-03 02:26:52,192 | INFO | AgentLoop | retry_triggered
+2026-02-03 02:26:52,192 | INFO | AgentLoop | attempt=2
+2026-02-03 02:26:52,192 | INFO | Planner | decision=use_rag | query='which is best vector DB for RAG'
+2026-02-03 02:26:52,192 | INFO | Executor | action=use_rag
+2026-02-03 02:26:52,192 | INFO | RAGTool | start | query='which is best vector DB for RAG'
+2026-02-03 02:26:52,192 | INFO | RAG query received
+2026-02-03 02:26:52,192 | INFO | Starting hybrid retrieval
+2026-02-03 02:26:52,209 | INFO | Vector retrieval completed
+2026-02-03 02:26:52,484 | INFO | BM25 retrieval completed
+2026-02-03 02:26:52,485 | INFO | Context retrieved
+2026-02-03 02:26:52,485 | INFO | Prompt constructed
+2026-02-03 02:26:52,485 | INFO | Sending prompt to Ollama
+2026-02-03 02:27:04,293 | INFO | Received response from Ollama
+2026-02-03 02:27:04,293 | INFO | Answer generated
+2026-02-03 02:27:04,293 | INFO | RAGTool | end | time_taken=12.1s
+2026-02-03 02:27:04,295 | INFO | Reflector | FAIL | reason=signal_detected | signal='i don't know'
+2026-02-03 02:27:04,295 | INFO | AgentLoop | retry_triggered
+2026-02-03 02:27:04,295 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 0.0, 'grounding_score': 0.0}
+2026-02-03 02:27:04,295 | INFO | AgentLoop | completed
+2026-02-03 02:34:05,419 | INFO | RAG PIPELINE STARTED
+2026-02-03 02:34:05,494 | INFO | PDF extraction completed
+2026-02-03 02:34:15,238 | INFO | Audio extraction completed
+2026-02-03 02:51:07,887 | INFO | Audio transcription completed
+2026-02-03 02:51:07,933 | INFO | Text cleaning & merging completed
+2026-02-03 02:51:08,092 | INFO | Chunking completed | chunks=142
+2026-02-03 02:51:08,206 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-03 02:51:08,509 | INFO | Use pytorch device_name: cpu
+2026-02-03 02:51:08,509 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-03 02:51:17,795 | INFO | Embeddings stored in ChromaDB
+2026-02-03 02:51:17,795 | INFO | RAG PIPELINE COMPLETED SUCCESSFULLY
+2026-02-03 02:51:46,418 | INFO | Hybrid ranking completed
+2026-02-03 02:51:46,454 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-03 02:51:46,586 | INFO | Use pytorch device_name: cpu
+2026-02-03 02:51:46,586 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-03 02:52:46,961 | INFO | AgentLoop | query_received='Tell me about context enrichment'
+2026-02-03 02:52:46,961 | INFO | AgentLoop | attempt=0
+2026-02-03 02:52:46,961 | INFO | Planner | decision=use_rag | query='Tell me about context enrichment'
+2026-02-03 02:52:46,961 | INFO | Executor | action=use_rag
+2026-02-03 02:52:46,961 | INFO | RAGTool | start | query='Tell me about context enrichment'
+2026-02-03 02:52:46,961 | INFO | RAG query received
+2026-02-03 02:52:46,961 | INFO | Starting hybrid retrieval
+2026-02-03 02:52:47,045 | INFO | Vector retrieval completed
+2026-02-03 02:52:47,181 | INFO | BM25 retrieval completed
+2026-02-03 02:52:47,197 | INFO | Context retrieved
+2026-02-03 02:52:47,197 | INFO | Prompt constructed
+2026-02-03 02:52:47,197 | INFO | Sending prompt to Ollama
+2026-02-03 02:53:49,959 | INFO | Received response from Ollama
+2026-02-03 02:53:49,960 | INFO | Answer generated
+2026-02-03 02:53:49,960 | INFO | RAGTool | end | time_taken=63.0s
+2026-02-03 02:53:49,960 | INFO | Reflector | PASS
+2026-02-03 02:53:49,960 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 1.0, 'grounding_score': 1.0}
+2026-02-03 02:53:49,960 | INFO | AgentLoop | completed
+2026-02-03 02:55:54,931 | INFO | AgentLoop | query_received='tell me about data protection and privacy'
+2026-02-03 02:55:54,932 | INFO | AgentLoop | attempt=0
+2026-02-03 02:55:54,932 | INFO | Planner | decision=use_rag | query='tell me about data protection and privacy'
+2026-02-03 02:55:54,932 | INFO | Executor | action=use_rag
+2026-02-03 02:55:54,932 | INFO | RAGTool | start | query='tell me about data protection and privacy'
+2026-02-03 02:55:54,932 | INFO | RAG query received
+2026-02-03 02:55:54,932 | INFO | Starting hybrid retrieval
+2026-02-03 02:55:54,945 | INFO | Vector retrieval completed
+2026-02-03 02:55:55,097 | INFO | BM25 retrieval completed
+2026-02-03 02:55:55,097 | INFO | Context retrieved
+2026-02-03 02:55:55,097 | INFO | Prompt constructed
+2026-02-03 02:55:55,097 | INFO | Sending prompt to Ollama
+2026-02-03 02:56:59,342 | INFO | Received response from Ollama
+2026-02-03 02:56:59,342 | INFO | Answer generated
+2026-02-03 02:56:59,342 | INFO | RAGTool | end | time_taken=64.41s
+2026-02-03 02:56:59,342 | INFO | Reflector | PASS
+2026-02-03 02:56:59,342 | INFO | Evaluator | scores={'length_score': 1.0, 'clarity_score': 1.0, 'grounding_score': 0.0}
+2026-02-03 02:56:59,342 | INFO | AgentLoop | completed

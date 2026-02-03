@@ -1,3 +1,133 @@
+--- Architecture & Design Patterns.pdf ---
+1
+Place for photo
+RAG Architecture & 
+Design Patterns
+October 2025
+2
+Speaker
+Lucian Gruia
+Data Science Principal Lead
+●
+Head of Engineering, Romania
+●
+13+ years of experience in Software Engineering
+●
+Led cross-functional teams across 8 time zones in 
+Telecom, Fintech, Aerospace, and MedTech
+●
+Mentor @Google Developer Groups Romania
+●
+Research Assistant, AI Multimedia Lab (National 
+University of Science & Technology, Bucharest)
+●
+Supervised 12 BSc and MSc diploma projects
+3
+Agenda
+01
+02
+03
+04
+Data Chunking
+Advanced Retrieval
+History Management
+Reasoning & Context 
+Awareness
+05
+Coding RAG
+4
+Data Chunking, Advanced 
+Retrieval
+5
+Data Chunking and LLMs
+LLMs also have a limited capacity for context. 
+Just as humans cannot digest unlimited context, these models have a speciﬁc size limit for the content they 
+can process.
+So, what about situations involving very large amounts of data? 
+Consider a speciﬁc use case, such as a book. It's too large to pass the entire book as the context for the 
+current prompt, so it needs to be divided before being stored in the database.
+This process is known as data chunking.
+Types of Data chunking (by size):
+●
+Fixed-size
+●
+Variable Chunking
+●
+Semantic Chunking
+5
+Generated with DALL·E 3
+Read more: Data Chunking Strategies in RAG
+6
+●
+Store, index, and manage high-dimensional vector data (aka Embeddings)
+●
+Perform similarity search
+○
+Cosine similarity
+○
+Pearson Correlation
+○
+Levenshtein Distance
+○
+Jaccard Similarity
+○
+Euclidean distance
+○
+Dot Product
+○
+Minkowski Distance
+Vector Databases
+6
+Images source: Datacamp - The Top 5 Vector Databases
+7
+Advanced 
+Retrieval
+8
+The retrieval component is responsible for sourcing 
+relevant information from a database or document 
+collection based on the user's query or input. 
+This information is attached to prompt and passed to 
+the LLM as an enriched context.
+Retrieval
+8
+Techniques
+PERFORM RETRIEVAL
+●
+Vector Store Index
+●
+Hierarchical Indices (summaries associated)
+●
+Hypothetical Questions and HyDE
+●
+Context enrichment
+○
+Sentence window Retrieval
+○
+Auto-merging retrieval (aka Parent-Document)
+○
+Fusion retrieval/hybrid search 
+POST RETRIEVAL
+●
+Reranking & Filtering
+●
+Query Transformations
+○
+Step-back prompting
+○
+Prompt rewriting/Reformulate
+●
+Evaluation
+Images sources: TowardsAI - Advanced RAG Techniques: an Illustrated Overview
+9
+History Management
+10
+Reasoning, Context 
+Awareness
+11
+RAG Architecture
+12
+Coding RAG 
+apps
 --- Databases for GenAI.pdf ---
 1
 Place for photo
@@ -314,6 +444,257 @@ doc changes)
 5. Evaluate systematically (not 
 "vibes-based")
 Production Best Practices
+--- Productized & Enterprise RAG.pdf ---
+1
+Place for photo
+Productized & 
+Enterprise RAG
+October 2025
+2
+Speaker
+Lucian Gruia
+Data Science Principal Lead
+●
+Head of Engineering, Romania
+●
+13+ years of experience in Software Engineering
+●
+Led cross-functional teams across 8 time zones in 
+Telecom, Fintech, Aerospace, and MedTech
+●
+Mentor @Google Developer Groups Romania
+●
+Research Assistant, AI Multimedia Lab (National 
+University of Science & Technology, Bucharest)
+●
+Supervised 12 BSc and MSc diploma projects
+3
+Agenda
+01
+02
+Existing repos & products
+Pros, Cons, Limitations and 
+Considerations
+4
+Quick recap
+5
+What is RAG
+A RAG system essentially correlates a user's 
+prompt with a relevant data chunk. It does this 
+by identifying the most semantically similar 
+chunk from the database.
+This chunk then becomes the context for the 
+prompt.
+When passed to the Large Language Model 
+(LLM), it enables the system to provide a 
+relevant answer within the given context.
+6
+Why do we need RAG?
+●Expands 
+Knowledge 
+Base
+RAG accesses a vast external database, enriching its knowledge 
+beyond initial training data
+●Improves 
+Accuracy
+Enhances response precision by integrating relevant, real-time 
+information
+●Adaptable
+Effectively handles novel and niche queries
+●Increases 
+Efﬁciency
+Streamlines information retrieval and generation process
+●Versatile 
+Applications
+Useful across various ﬁelds, from customer support to research
+Source: What Is Retrieval-Augmented Generation, aka RAG?
+LLMs are limited to the knowledge they were originally trained on, and retraining or 
+ﬁne-tuning them is slow and expensive.
+7
+●
+Embeddings 
+Numerical representations of concepts, in a high-dimensional space, capturing semantic meaning.
+●
+Similarity:
+○
+Lexical: entities are alike in appearance
+○
+Semantic: entities are alike in meaning
+●
+In RAG we represent entities by describing them. 
+This is a form of knowledge representation.
+Embeddings. Similarity
+Example: Mountain, River, Canal
+One hot encoding
+Mountain:
+1
+River:
+2
+Canal:
+3
+2-Dimensional Space 
+[Natural vs Artiﬁcial, Mobility]
+Mountain:
+[-0.7,
+-0.8]
+River:
+[-0.3,
+ 0.7]
+Canal:
+[ 0.4,
+ 0.5]
+Read more: Wikipedia - Cosine Similarity
+8
+Multilinguality
+●
+Multilingual Capabilities
+RAG and chatbots can process and respond in multiple languages, enhancing global reach 
+and accessibility.
+●
+Cross-lingual Understanding
+These systems understand queries in one language and retrieve information in another, 
+facilitating cross-lingual interactions.
+●
+Language-Agnostic Embeddings
+Use of embeddings that capture semantic meanings across languages.
+●
+Challenges
+Handling idiomatic expressions, cultural nuances, and varying sentence structures in 
+different languages.
+Generated with DALL·E 3
+9
+Existing repos & products
+10
+10
+NotebookLM
+11
+11
+GEMs
+12
+12
+Custom GPTs
+13
+13
+LM Studio
+14
+14
+Anything LLM
+15
+15
+OpenWeb UI
+16
+16
+Glean
+17
+17
+Sourcegraph
+18
+Pros, Cons, Limitations 
+and Considerations
+19
+19
+✅ Pros
+●
+Enhances factual accuracy via external knowledge
+●
+Reduces hallucinations vs. pure LLMs
+●
+Enables dynamic updates without retraining
+●
+Modular, domain-adaptable architecture
+●
+Scalable across multimodal or multi-source data
+Pros & Cons
+⚠ Cons
+●
+Retrieval quality depends on data prep & 
+embeddings
+●
+Latency increases with retrieval pipeline
+●
+Requires infra (vector DBs, indexing, chunking, etc.)
+●
+Context window still limits answer depth
+20
+20
+🚧 Limitations
+●
+Not reasoning-ﬁrst, still retrieval-driven
+●
+Poor handling of implicit or fuzzy queries
+●
+No built-in memory or learning from feedback
+●
+Struggles with conﬂicting or outdated sources
+Limitations & Considerations
+💡 Considerations
+●
+Balance retrieval vs. generation cost & latency
+●
+Continuous evaluation of relevance & drift
+●
+Governance for data freshness and accuracy
+●
+Potential upgrade path: Agentic / Tool-use RAG
+21
+Enterprise Data Protection and Privacy
+●
+Safeguarding sensitive information and maintaining customer trust.
+●
+Regulatory Compliance: Adherence to laws like GDPR, which mandate data security and privacy.
+●
+Encryption & Anonymization: Secure data and protect individual identities.
+●
+Access Control: Implementing strict permissions and access policies to sensitive data.
+●
+Regular Audits: Monitoring and auditing to identify and rectify any vulnerabilities.
+●
+Importance of using External Data & RAG models.
+●
+Augment context in order to get accurate completions.
+Image by Jan Alexander from Pixabay
+22
+22
+Quiz Time
+23
+23
+Q1
+What is the main goal of RAG?
+ A. To train larger models
+ B. To reduce hallucinations using external knowledge
+ C. To replace ﬁne-tuning
+ D. To speed up token generation
+24
+24
+Q2
+What is a key limitation of RAG systems?
+ A. They cannot retrieve multimodal data
+ B. They require GPU inference for retrieval
+ C. They depend heavily on data quality and embeddings
+ D. They cannot use APIs
+25
+25
+Q3
+What’s the next evolution beyond basic RAG?
+ A. Fine-tuned GPT models
+ B. Static FAQ chatbots
+ C. Agentic or tool-using RAG architectures
+ D. Prompt templates with zero retrieval
+26
+Key Takeaways from the session
+Boosts factual accuracy by 
+grounding LLMs in real data
+No retraining needed, 
+knowledge updated via 
+data refresh
+Still limited reasoning 
+and context awareness
+Reduces hallucinations, but 
+depends on retrieval quality
+Latency–complexity trade-off: 
+retrieval adds overhead
+Next evolution → Agentic, 
+monitored, tool-using RAGs
 --- RAG Intro.pdf ---
 1
 Place for photo
@@ -580,586 +961,9 @@ Key Takeaways
 What You Should Remember
 --- 1 part. RAG Intro.txt ---
  As we are starting with a rock topic, today we will have a small intro and then move on to the databases for Genii. Our speaker for today's both session is Maxim and we will start with intro. As I said, Maxim, you're very welcome to start. Hello. We're happy to see you all today. I will start from organizational topics as well. It depends on how fast we will move, potentially we will have some small break between sessions, but let's see. So today mainly we will focus exactly on the way how LLM can utilize external information for providing value to the users that basically utilize some systems and we will focus on the rock from the different perspective. First our focus and first our presentation will be around general rock, why do we need the rock and some more practical details that potentially will help you to navigate in this huge and complex world where you can find a lot of the tools for the different purpose, a lot of the databases, but you don't know where to start and maybe where and how to progress. So let's start maybe a bit from the introduction. So I'm a max right now at Siklom. I'm global head of cloud platforms and AI director. So I'm already nine years within Siklom. A long time ago I came here as a middle JavaScript engineer and went through the different stages of promotions and I was so lucky to have experience with different SDLC processes and stages that's right now I can jump much deeper not only into engineering topics in the developed topics, cloud topics and in a product topics as well. So from the start of chat GPT era I jumped to the AI direction as a self learner and I was amazed with the some of the experience that I got within the LLM and right now my main interest is to make a AI system as much reliable as it possible. That's why maybe you can find some of the topics that I did from the previous academies around the prompt engineering. This is where I started to adopt in LLM and try it to make them more reliable. And today we will go through like for this presentation we will go through three first topics. So we will focus on the definition and benefits. What we have from the rock some of the main use cases so from the practical life limitations and we'll cover a bit what tools you can use to speed up this process. So in general when we are talking about AI adaptation landscape so basically we have our base model and we want to direct that base model in our for example like domain or our use case or our application. So we need to start guiding or providing or maybe tuning the LLM and you always go from the simplest way of the tuning of the LLM to more complex. In some of the like articles you can find that even prompt engineering this is some  like tuning of the LLM because you are changing potential like behavior or narrowing direction of the LLM. And normally when you try to adopt LLM you are starting from that. The next stage and this is where we will focus mainly today for both of the sessions. It's retrieval augmented generation approach. This is where you already have some pipeline that helps you to add more extent and extend the knowledge and understanding of the LLM. The next stage it's like about the fine tuning mainly when you already need to adopt model in some way or like provide some way of the behavior of the model and for sure you can bring more knowledge to the model and the last one the biggest one where you have a combination of RUG and space-equipped fine tuning. And RUG for us the main approach we need to have like some fresh data or our proprietary data because all of the LLM have cutoff data like with the tool use they can get access to the more fresh data from the web but sometimes it's better and easier to provide our own data or especially if it's like proprietary and close data that you have access only you have access and they are not publicly. And it's one of the like most effective and cost effective way basically to let's say fine tune the model. And if we are starting from what exactly is RUG so this is the pattern that helps us to add additional knowledge to our model. In a simple way we have this like basic RUG pipeline where we have like first stage where we edit our knowledge and vectorize to some of the vector DB and then when our user use our system together with LLM basically first request is given to the vector database it's doing like some similarities or choosing a few of the chunks or like documents from that vector DB based on how many we set up and then LLM preparing the final response to our user. Why it's matters I already like partially explained but in addition it's quite often if you want to have like better accuracy in their responses because with the usage of the RUG approach you can put like exact data for the different topic that you want to utilize within your system when when user interacts with that. It's quite adaptable because you can quite fast change or update or add new knowledge to that RUG database much more cost effective and it's in addition it's increase efficiency especially when you need to provide like big amount of your like proprietary let's say data or like knowledge because for sure with the current size of the context window quite often you can feed a huge portion of the information to the LLM like with all of the knowledge that you want to utilize as a part of the output than when LLM is working on that data but a lot of the researchers show them that's bigger context windows that you utilize or like bigger prompt you you provided to the LLM you are getting much worse result because LLM quite often missing the exact like needed information in the middle and in addition you just provide in some noise together with that data like some of the words or information that's even not connected to your basically use case of the database of the communication with LLM. When we are going to deep dive so in the RUG pipeline in general we have two main stages but like when we go a bit to the details quite often and especially this information is missing when you when you're reading about the like RUG pipeline it's data preparation for that RUG pipeline because mainly it's focused on like the way of the chunking about the database you can use and how you put the data but it's quite important to start from the preparation of your data because I've mentioned for example when we provide a huge amount of the data to the LLM one of the big problem that's together with the data providing like water or noise that's just can navigate LLM when it use that like prompt information or text in the wrong direction so that's why quite often preparation of the of your data is quite important step as well then you have the step where you like preprocessing of the data like making like chunking a process because you can you can't just put all your 100 page documents to the vector database because it's probably huge and then LLM basically will get all of that 100 page documents as a prompt from the from the vector database so we have like different approaches how to split the information that comment with the with the documents and when we are talking about the documents the the information that's coming as an input can be like in many different formats because we are we are focusing mainly on the text formats but it can be audio it can be video it can be like images and different types like even chalice creep or python code basis then we after after the step when we split our data to the smaller pieces we are converting that smaller pieces to the numeric value and then that numeric value basically ingest to the vector database and we have a step of the retrieval it's one already our user of our system basically make the request and our system based on that request making the similarity search from the vector database and based on the results of that similarity search it's choosing like top key chunks like normally you are setting that's between like five to ten top results that you're grabbing from that vector database and then lm decide what part of the information from the chunk it should pick up to fulfill the intent of the request of the user and provide the output so chunking and approach to the chunking is a quite important part of this all of the rock system because like context window of the lm lm 6 limited for most of the lm's right now for sure we have quite a huge one even within the last jemenai versions they mentioned it can the context window can grow up to two million tokens but still the problem with missing information in the middle still persist with huge with huge context that you are providing to the model to the models even right now the situation is improving and mainly labs are working quite heavily to improve the retrieval and fighting and processing of the whole of the information that you provide into the lm but still this is the problem of reliability so to say and within the chunks you have like challenges to get the proper balance and if you provide like two large chunks if you if you split your document in a two large pieces then you will have as a result like not the best retrieval or a lot of the noise or water that you're providing as a part of the request the lm or if you put in it's too small then you are losing basically the main context of that information because it can be split it in a different part and it can be the case that based on the similarity search you will not get the full context of the information and lm can provide not reliable response you hear just representation of like three let's say base and main chunking strategies so fixed size semantic recursive but for sure you can find a lot of different approaches in terms of chunking so fixed size it's when we split our information basically in the fixed size like for example 512 tokens and we we are having like overlap and overlap basically help us to potentially preserve some context from the previous chunk and it help us to increase the potential quality of the chunks that we will have it is the simplest approach and for sure it has each each of the almost each of the approach or I would say like each approach has some cons and for for this for this approach this is the the problem that if you always have a standard size it can be the case that your chunk will be break in a mid of the sentence or will not have again still the main context that you need to preserve for this chunk and as a result the quality of the retrieval stage will be much lower the semantic one here quite often some ML system utilized and it's trying to split all of your information by the meaning and it has a much higher like accuracy and in most cases much higher quality of the retrieval stage because we are preserving in most cases like context that is needed to be in that chunk and when we are doing the similarity search and top results LLM is getting it's getting the proper context for all of the chunks that we picked up the problem for sure it's like slower and more expensive in terms of like compute and depends on the amount of the data that we have but in general the situation in this direction with the more compute and slower is getting better from the year to year and later on when we will have the next session I will give you some perspective on how fast things can can be changed with all of that tools that we utilize in right now for the agentic system and in in this ecosystem in general a recursive approach it's still mainly like coding coding approach without the utilization any of ML or AI system it's splitting of the information by separators with this approach you basically split we're chunking based on the structure of our document so we can identify the paragraphs we can identify the boundaries of the document and like for sure it's a bit more complex than fixed size and still we have that problem with the context because paragraphs still do not represent the full meaning of your text or your information and this is how that's three different approaches looks like so when we have the fixed size so we have two close to equal chunks and we have overlap of the parts of the sentence that we have quite often in our chunks when we have the recursive so recursive just split it our text based on the sentences and semantic it's more focused on what the meaning we have in each of the parts of our text that we provided right right now like for the last time a lot of the new approaches evolve in terms of chunking you can for sure hear about like agentic chunking while we utilize in the LLM and LLM provide to us more meaningful approach to this splitting on the chunks our information some embedding chunks when we utilize like exact embedding model and based on the the on the meaning of the text it help us to split the information better as well but they are coming with additional more extensive compute cost time and still we don't have like 100% reliable system that is the best approach for this splitting chunking or like embedding of the information so you don't need to implement like all of that that we mentioned like approaches to the chunks so some of the top libraries that's already fully implemented at least like basic approaches to the chunking so basically the length chain has has all of the basic approaches not only what I showed earlier in addition then they have more complex chunking approaches so it's a quiet known library like basically application framework that helping to build the agentic workflows and in under the hood it has a lot of additional connectors, side libraries that's helping us to build that agentic system and LLM index from the start it mostly was focused on the rock specific pipelines it has quite good performance it's data centric and it's just have a bit different approach how they implement this chunking strategy but you can find even the same chunking strategy implementation in both libraries so you can look there try them and most probably you will get quite good results from best in different chunk approaches for exact your cases. In terms of where mainly rock is using for sure we can we can talk about like from the perspective of general systems and from the perspective of the use cases when we're talking about perspective from the use cases so custom support, job search, detection and you name it while we have quite often updated system updated information with quite often updated system and mainly that system like proprietary notes fully publicly available especially but when we are talking about exact systems where it's mainly utilized it's like for the AI chatbots like for example if you have some support chatbots you are putting information as a to the rug like Q&A information or some support documents for your clients, search and discovery so combination of the keyword and vector search for better meaning of your searches, different compilates as an example it can be even how many of current systems like for example when we are talking about like cursor or other they basically use rug for the index indexation of the code base and much faster than finding the exact places in your code base for coding and helping to you and when we need the long context reasoning it's quite often utilized because again the quality of LLAM outputs is going down with the amount of the data that you feed as a part of their request so splitting and finding the exact parts of the information that you are going to provide is much better approach. So in terms of like common challenges still chunking and context to window as we as I mentioned about the problem with the chunking like if you provide in quite large chunks then it's mean that that's a quite large chunk then you feed to the model so we have the problem with the additional not needed information in exact that request then we have like retrieval quality so it based on the exact system that you utilize I mean like vector database or like approach to the data and latency and costs so for sure if we add to any system that we are developing if we add at some additional layer way you need to retrieve data or like make some filtering it's coming with the cost of latency. Some do some don'ts for the RAC system so quite often it's better to start from the simple approach even like from the simple base later on we will go a bit deeper on that. Use the metadata filtering in addition to the chunks most of the system provide possibility to add additional information and metadata like for example some category topic that's then it can be the part of your like filtering mechanism. Combining the vector and keyword search so hybrid approach and about that we will talk in our next session. Monitor the retrieval quality in addition to our like ingestion and our test we should prepare some pipeline that will double check the quality of our retrieval system. I will wait with the domain specific question so basically evaluation on that exact system that we are trying to build. To build like more reliable system not rely solely on the vector search so in addition you still have like your standard searches like keyword and we will discuss about some of the other approaches that's providing much better results when they work together as a hybrid approach and we're ranking approach as well. One of the biggest problems within the RAC this is the security and access control so it's quite complex to implement this sometimes but already some of the systems exist and we can just utilize them. Overload of the LM context so working on the balance of your chunks it shouldn't be quite big and for sure shouldn't be quite small because based on that your user of your system will get the result that's expected. Continuous update and do not skip evaluation framework. And here are not the three main chunking strategies but the systems that's or like libraries that you can utilize like for the scenarios of learning the main suggestion it's like LM chain because you can find a lot of the videos in YouTube it's quite extensive community around the LM chain and learning of the LM chain and that possibilities so basically you can utilize HROMA potentially sentence transformers or LAMA and some of the like key reasons it's you can like learn fundamentals and from the perspective or of risk-free like that stack that's I provided for the for the learning it's like fully open sourcing you can run just on your laptop but for sure you can if you do not use any data that shouldn't be sent to the models like chat GPT and stuff like that you can for sure utilize open EI or like Gemini embeddings for the for the easier approach and like as an MVP stage quite often we need just to change potential like HROMA and add a bit and other embeddings and for the more enterprise systems it can be the case that LM chain is not enough because it's quite good with the agentec workflows but has the problem with some agentec collaborative systems and finally come and again like open EI and Gemini embeddings one of the top right now in terms of quality the fault configuration so as a start for 80% of your cases chunk size if you are using like fixed chunk in approach so chunk size 512 tokens is enough and golden middle for sure based on your research you can identify different size of the chunks that work in for your cases better 15% of the chunk overlap top-caratriol I would say like 35 sometimes 10 and embedding dimensions between 700 and 1500s should be enough this data mainly on the research of the Nvidia and it's  like golden middle middle data and why you can start when you are building your chunk your rock systems but then within the evaluation and testing you can find your exact the best size for the chunks and for your rock system just few takeaways so rock this is the system that helping us to provide to the LLM external knowledge at the query time chunking is quite critical so I will not repeat about the exact numbers hybrid search is quite often better than like only vector only search start or always simple not only for the learning when you are starting prototyping all or development you can start from simpler systems not utilizing from the start the enterprise grade database is about what we will talk later today and quite important part it's evaluation of your rock pipeline not only like building but systems that will help you to make the evaluation of the quality of your pipeline is quite important time for the questions to be honest we only have three questions so yeah I believe we have already answered that but anyway how do we decide the chunk size for documents how do we decide chunk size for document you're starting basically from that chunk size that's I provided when we have like 512 tokens and with the slide in window of 15 percentage and this is why you are starting and then based on your like further experiments quite often when we are talking about like all AI or like ML development system you always have part as a research and then you based on the results that you are getting you are playing with the numbers so based on what you get and what you reviewed or maybe you already built the evaluation pipeline based on the numbers from the evaluation pipeline you can then just change your parameters and see if you are getting better results and then based on that researches based on that evaluations you can get the best number in your case in terms of what is the size and what is the approach to the chunks should be. Thank you Maxneum we have other question from Tolani she said that she found that LLAMs struggle was analyzing survey data she had started putting the documents as PDF and found that it works better so the questions are which chunk in strategy would an LLAM use for survey in PDF format versus CSV and which do you recommend. We will talk about this in our next session. Okay. So give that question for the next session in case we will not answer. Got it and the next question is RAC is just querying additional info from the internet and puts it in the context window of your model before providing the answer. Is it right? Almost except of internet this is our like separate database where we store in our data so this is like the domain pipeline but for sure we can say that this approach that's going to the internet and getting additional data this is a RAC system as well like a RAC system because we augmenting additional information to our LLAM but the base when we are talking about the RAC system it's mainly that we have some separate place where we store in some information that we want our system to utilize as a part of the of the answer of our LLAM. Okay thank you and the last one. Can I put RAC to my newly developed GPT and it will be very online and up to date. Is it? It's my newly developed GPT. Yep. Maybe a person can unmute and just say a few words what does it mean like newly developed GPT? Yes so it's my question so I just want to understand do I get it right about RACs? So if I have some LLAM whatever GPT or whatever and I don't want to retrain it I just want a new information like from the new database so it means that I can add this new shiny layer like RAC and then it's like chroma or whatever and it varies the data from this chroma before into the context window and just basically without retrain I will get all the all the information. Yes. Yes. Yes. Then it's fully correct. In a simple understanding maybe I just may clarify one point. Yes. So I believe the question was asked by Vasili so Vasili used like your I think you are oversimplifying it so in the first place you have to get your data into chroma so you have to get your data split it into chunks embedded, put it into chroma and then yes adding chroma and some RAC library on top of your GPT will work but you will get only your data you will not get all the new data available on the internet for that you would need to integrate with some other tools like internet search. Yes. I got it. Yes. Thank you so much for your questions. Maybe you have other or we can move on to the next part of the session. I have one question which is about the beginning part. It's just above my last message. Because without the beginning you mentioned that RAC injects into the prompt but did he mean the modern instead because I was confusing it's in the chat. Okay let's go. When we have the user query just to retrain. First step in most RAC systems where we based on that query our system find out the top parts of our data that we put to that database like five potential pieces of the information and then together with the prompt and that information our system making the request to the LLM and then LLM together with that information that we provided from the RAC database and the prompt that's like user query provide the answer to the user. Okay. So this will happen in the back end because on the front end I wouldn't see that. But I think of prompt as someone who is probably non-technical I think of whoever I've entered into the chat box. Yeah. For me just prompt this is anything that we are providing to the LLM all of the information. But yes I understand like just to show as a simple example of the RAC system as well. So when we create some projects for example in the chat GPT the project files that we are adding basically that projects then our RAC system because chat GPT just split that information to the chunks and then utilize that information when we are asking questions in our chat. It's the simple representation of RAC system and you can find all of that like GPs until you are providing the expected like BFF or instruction when you just provide the the files that you want GPs to utilize. It will be in addition to RAC system.
+--- 1st Part_Productized Enterprise RAG.txt ---
+ prepare homeworks we are assigning here on these two chapters. Of course we need it to have before that some sessions about large language models, about neural networks, about genAI introductions in general and fundamentals. So we can set at least have the same technology, understand the start understanding the paradigm and getting more familiar with the new concepts. So today's sessions will be splitting two parts. The first one is about productized and enterprise RUG. Actually we are mostly reviewing what the RUG platforms are and what are the available products that you can use. I will do also a quick recap on what actually RUG is. The second part of the section of the session will be on the architecture and design pattern. So after about 40 minutes we will see at the end of the first deck. You can switch some of you you can drop. Otherwise if you are interested you can still stay but just wanted to let  that the second part of the session will be mostly focused on engineering aspects. We are discussing coding and architecture part. If you are interested of course you feel free to stay. Otherwise feel free to drop. Meanwhile my colleague Oxana is checking some settings in zoom. I think there is a limitation. I cannot share the entire screen and at some point I will need to switch from Google slides to show you some other screens. In case that doesn't work it will take a while to do the switch. Maybe we can fix that meanwhile Oxana and feel free to introduce me anytime in case if you find any other settings there which any flag there which was not set up already. Okay so I know you have the intro session with Max on what the retrieval augmented generation is. As I mentioned I will do a quick recap. Then we will do some review on the existing products and how you can leverage those products. So you can do your daily work not necessarily limiting to work but you can also use that in your own like private life. Then we will also discuss a bit about the pros and cons and limitations. So today's session the first part the the practitioner part is mostly a current and overview of the current products that we have available. So we can we can have the benefits of this new paradigm which is called RUG. First of all a quick recap in case if you missed the previous sessions in case maybe I don't know something was not clear. Just one thing a different perspective. I have to re-slide on what the right is. So first things first RUG basically it's just another software system that helps us crawl to some knowledge basis. How does it how does it work? It basically starts with an initial prompt. So imagine we are asking a question. Typically what we do or traditionally what we do with those questions is going to our database find some data there and then return answer to that question. But more traditionally the questions were addressed in a formal language which we call for instance APIs and those APIs have very clear specifications. The difference in the in the paradigm of genai that we can address these prompts, these questions in natural language. So in our mother tongue. But not only that we don't only go and retrieve something from the knowledge base which is relevant to our question. More than that we are initially augmenting that prompt. We are expanding it a bit with some knowledge which is private, usually it's private. It's related to our organization or to our private life. And then we go with that question to a large language model. And the large language model analyzes our question together with the data that we retrieved here from the knowledge source and returns us an answer because the magic the power of LLMs today is that they can answer in our mother tongue as well. So we don't need that much formal strict format of questions or answers. We don't need necessarily to pass specific arguments to questions to APIs. We don't need necessarily to use JSON files and then retrieve a specific XML format which we is further processed by another application. We don't need any of these. We just need our language to address the question to find something that's relevant there and augment our question. And then ask the LLM our initial question but in our own context. That's very important because our own context is something that normally the LLM doesn't have. So LLMs are just some neural networks. They are trained against a specific set of data. That dataset gives them the knowledge that they have. It cannot be altered. It's very hard actually to train an LLM. So they cannot know everything that we would potentially ask. We want to ask something about our current project, some Gira documentation. The LLM clearly doesn't have information about that. So we need to go here in the knowledge base and search that information attached to our prompt. And the job of the LLM is just to defraise it more nicely so that the answer will be also in in the same language that we addressed. We can even use Java for instance to ask questions. When we say language we are not limiting to natural languages but we are talking especially about natural languages because this is a novelty. A few years ago we couldn't do that. So why do we actually need Rugg? It's basically to expand the knowledge base of this LLM. And to expand actually the way we search the possibilities that we search through our knowledge base. Traditionally we make all it database. It's more or less the same thing. I believe you can you can look at the concept of knowledge base as a database but with some more relations, relations that are semantics. They are not only relations that are mathematically created between the entities in the database. The relations between entities into a knowledge base are very similar to what we have in our brain. They are semantics. So they are related to meaning. And the meaning has sense only is defined only for a specific language. Another reason we use Rugg is that it improves accuracy. So you may ask the LLM something but LLMs use a few sessions ago. You're playing with LLM Studio with different models. You have a homework. So you test different models. Some of you I saw your testing Gemma, other were testing Mistral. Then you are comparing this with Gemini or with GPT. So the differences are clearly there because these LLMs are bigger or smaller. They are trained against larger or smaller datasets in put datasets so they learn more or less. But depending on the quantity of the information and the quality of the data that they have initially, they would provide you better or worse answered. So that's why you need to improve the accuracy. And what does Rugg do? It's actually checking some additional context and feeds always in real time with fresh data, feeds the LLM. It's also very adaptable because you can change anytime some data in your Gira in your Confluence page documentation and then the Rugg mechanism will go and retrieve always. Only new data. So that makes the application that they are using Rugg to be efficient and versatile. So the main takeaway from here is that LLMs in general are limited to knowledge. To the knowledge that they were initially trained on, they know for them the reality is completely static. If they were trained against three terabytes of data that's all they know they cannot they maybe can statistically extrapolate but you don't have any guarantee that it's accurate. So that's why hallucinations occur. And also if you want to fine tune or D-trained this LLMs it's extremely expensive and is very slow. So as a worker around instead of doing that we are using the LLMs as they are. We better study their weaknesses, their limitations. And then when we talk to them we provide more context always so their task is reduced to only rephrasing some stuff not necessarily to providing knowledge. So by using Rugg we are already proposing a bit the role of the LLMs and we are transforming them into something that's more a very powerful translator if you like. So imagine you give them a question you also give them an answer because that's what you do from the knowledge base when you retrieve the context you are actually extracting the answer to that to your question. And the only thing you're asking the LLMs to do is hey you have the question you have the answer please rephrase this more nicely. If  some additional data added there otherwise don't just rephrase it and give me the nice relevant answer in English whatever our language. So that's fundamentally what Rugg is. Now this is a key concept and I know you also discussed with even within preview sessions not only last one on the introduction but just for the maybe people for the audience that it's non-engineering. If you're not familiar to this embedding concepts I think it would be both interesting and fascinating for you to discover how they work because these embeddings are a key concept in generative AI and in retrieval augment to generation systems that are actually empowering us to find that relevant context. So when we ask a specific when we address a prompt then our system is able to find the most relevant answer to that one to that prompt within our knowledge base. Imagine you have a book and you have a quote you don't want to read the whole book right you are asking a question and I'm going back to this diagram you're asking this question your book is here in the knowledge source so instead of retrieving the whole book and attaching to the prompt and sending to the LLMs it's too large definitely the LLM would not be able to process it. Instead of doing that you are only extracting only what's relevant from the from the knowledge source. So how do we do that? We do that by finding something that is similar right now how do we define similar? This is very tricky concept but also fascinating. So here in the knowledge sources in order to discover what's the relevant context actually. First of all we are splitting. Imagine you have a book of 1000 pages we are splitting that book in page by page right and then all you need to do is to find what was the single most relevant or the top three most relevant pages within that book that that answer to your prompt. So how do you do that? But essentially you are using embeddings which are some numerical representations of the concepts right how does it work? In reality actually these embeddings are just are just another neural networks that were trained against a lot of content from that language and while they did this training and feel free to look to the preview sessions on neural network to understand how the training works. So while they were trained against that data they were establishing relations between different words and concepts. So in that case they know what's something like in a specific language what is closer to what word is closer to another word and what's further. Let's see how does it work? Basically embeddings are an numerical representation and the format it's a vector so that's why when we store them we say we are storing them into a vector databases and this numerical representation basically means taking each concept within that language and assigning them some numerical numerical values. You don't know what numerical values are assigned to them but by doing training by by allowing the neural network to see a lot of times those concepts eventually they will they will be able to to find to find the right number so that the neural network will tell what's the difference and how far it's a concept from another concept. Let's take an example of three words you have the concept of the mountain you have a concept of a river you have a concept of a canal so  what what it means. So when we say assigning numerical assigning numbers to them you can start very very small by assigning a single number for instance we can call mountain one river two and canal three this is our convention and what does it do? It it basically help us make some differences between them. If we have only one single parameter here a single number it means we can use at least that that number for a specific scope what would be the scope. For now we the only thing we know about this concept is that they are different because one is different than two two is different than three right they are not the same thing definitely so we know mountain is not a river that's the only thing we know this technique it's called one heading coding maybe it's not that that relevant but then what happens when you start adding more numbers to these concepts so let's imagine we are looking to some characteristic of these concepts so for instance mountains or rivers or canals can be either natural or artificial care can be either static or mobile so if they are more natural we are we are assigning some numbers closer to minus one if they are more artificial we are assigning some numbers close to one if they are static we say it's minus one if they are mobile we say it's one same in that case it will actually reverse for the mobility in that case it would it would mean mountains are minus zero seven minus zero eight river are minus zero three zero seven right and canals are zero four zero five what did we do here it's we basically started describing this concept by choosing some numerical convention some numerical representation so basically we quantified how much a concept is natural or artificial or how much a concept is mobile or static if we would have another concept here such as car we will definitely say car is zero nine in terms of mobility right it's 90% most most of the time it's mobile right so that's that's something that defines this concept and when we start representing them it looks like this so mountain on on a on a plane it's here it's minus zero seven minus zero eight canals is here river is here and you clearly can see that angle between these two it's smaller so that what that does it mean for us is the river is closer it's more similar to a canal mountain it's actually almost opposite of a canal right so we know that this concept is definitely very very different than what it is and now we imagine coming back to our one thousand pages book imagine that book is talking about three concepts about the canal about the river and about the mountain and your question would be was the highest mountain in the world right so then the mechanism the algorithm what does it do it's looking through all the concepts in the book and it's choosing only the most relevant one mountain because it knows that our question it's not related to the other two concepts that what does the essence of of a retrieval augmented augmented generation mechanism and why why is that important is because we are able to isolate semantically what's relevant to our questions and we are ignoring the rest of the content like these two concepts so that we are not overwhelming elements with unnecessary information once we do that we have the prompt we have the concept we have the answer basically we pass it to our lm and the lm is answering by mostly refraising whatever we have there there are some challenges of course one of the most important challenges multilinguality because in different languages this concept this similarity might be different so when you have a cross-lingual understanding and now we search then you start facing challenges in identifying the relevant context and what does it mean it means that when you try to build a multilingual multi-lingual drag application it might not always work as you expect because it by designing lm are excelling in a primary language some of them which are very powerful such as gpt are working in most languages but the small language models which you've seen in lm studio for instance they are not performing that well in other languages so you need another lm maybe or you need to find a five different or crowns that's not a scope of the session it is just there's something that you need to be aware of so now let's see we can start reviewing some of the existing platforms and repositories and products on the internet because by using these drag systems you can go to your client and start basically leveraging them so you can create better product requirements documents analyze the requirements more or less faster or slower right slower not necessarily but it might be the case if you are not using the right choice and here is a pretty long list of some options you have on the internet I try to start with some options that are pretty much accessible without any specific license some of them might be licensed but it's still relevant because our scope is not necessarily to work with free options our scope is to understand what's possible and potentially pitch this in front of our clients or even investing in some tools that might help us personally right the first one we will review today it's a notebook lm some of you probably already heard about it on either a previous session it was mentioned definitely if not or maybe some of you will even have this notebook lm within a secret environment already or in client environment but if if not I can I can show you how it works so basically notebook lm is a it's a rag app which they call conventionally google calls it notebook in this notebook you can go and upload some sources you can go to google drive and pull some documents you can go and link it to some youtube videos or you can paste some text randomly I can show you an already one example that I was working with so here on the on the center on the main screen you have a summary of everything that was discussed that was sorry that was the address into the sources sources here are some files and I was using here some transcripts and some documents that we received from the client you see here is a summary of the discussion here is the some engagement strategy and next steps some notes right so this basically helps us loading as much documents actually it is a limit I think it's but it's I did not hit yet any limit it's like above 100 documents you can select all these sources here or you can disable them you can upload even more I'm using this for instance on even when I'm interviewing people especially if I have 10 candidates I interview the transcripts with all of them if I have some more client calls I'm looking to to the transcripts so I'm I'm make sure I never forget anything right so I loaded this here I cannot like show directly what's inside here because it was like a for a specific client maybe some confidential data but it's definitely the transcripts are here so this gives us some some some some summary I can ask you start addressing question give me some details about teen data let's say right so this teen data it's basically it's definitely something that an LLM knows right most of them such as Gemini are aware of what the concept means but what we are interested in is to make sure this is linked to our client most of the clients actually are leveraging this this concept whether if you call and they call it or not like this but this helps me give give answers in in context so basically it looks through all these documents here and help me understand what has been discussed already so this is very easy to review you've shown that it's possible to provide a Google Doc to notebook LM will it take the current version of this doc and use it forever or it will get a late reservation each time I ask question that's a good question me hi low as far as I know it is pulling the current version and then only sometimes but we don't have control on on notebook specifically but I think every few hours it's retrieving the new the new updates because it's caching the information it doesn't have time to go the runtime and query the document right I know from from trusted source that it's refreshing it from time to time but I don't know exactly the interval and there is another platform on top of what actually under notebook LM where you have more control but here this is just a ZZZ the product and you can use it as it is without having control on this then more than that you can it's not about about providing answers in context it's also about doing some other things such as let's create a mind map right so my map it's basically this tool going in asking more question more more more questions about our content and you to look like this so this definitely help you understand what were the threads discussed right and when you click on the thread then it's pulling you some data from the sources and it's giving you some references as well right you see here here is extract from the from the transcript so this is super powerful it's very easy to look through a lot of documents imagine you have here dozens of transcripts yeah let me let me address the other the other question when a dog provides updates based on new data does that mean LLM is being retrained or fine tuned or simply retrieving new context from the dog that's very relevant and good question mousadik thanks for asking it and LLM it's so for the LLM the world is static every time you go and ask a question it will return the same the same it will know the same thing it doesn't it's not being retrained or fine tuned every time you are discussing with it so every time you go to the LLM you need to provide again the context doesn't matter if you're just told to the LLM the context and your prompt if you go back with the prompt without providing the context it will simply forget everything if you go back and give another context it will take that context as is so its memory is zero is volatile right every time you're asking things it takes those for granted that that's its reality Gemini some gems do the same thing or similar thing as as notebook LM the difference here in gems is that you can basically upload some some basic instructions so you can instruct it on how you want to behave it works in notebook LLM as well but gems are a bit more oriented on creating a chatbot that responds to specific questions with a specific behavior I think they have to separate products from google actually developed in parallel mostly the same thing but with a different interface notebook LM has has the power to plug in with other other external sources that were introduced also to gem but later to gems but later notebook LM has also this fancy feature such as nine maps as you saw earlier gems basically and you you have the homework I am not insisting on it but these gems this gems oh I think they probably are not available anymore oh okay near here right english teacher so these gems are a bit more static they have some some some some instructions some descriptions and some specific static knowledge and that's it when you add a gem you can when you when you when you create a gem you can just add from file or from google drive but not necessarily from videos or from other stuff that notebook LM supports I use both of them actually it depends it's more comfortable for me to have a gem that I know it's it's always redeeming very well my english without re-instructing it again and again and the same thing it's available for custom GPT now I know probably not everyone here has custom GPs or chat GPT instance plus for instance I'm using clients GPT here and we have some custom GPT's which are very similar to gems you can go to my GPT you can configure that one you or you can create a new GPT and it works the same it's it accepts some configurable instructions and then some conversation starters and then you you upload some documents and it starts asking on   answering on those documents this is important not not just for q&a it's important because it gives you the power to look through everything and basically bridge your knowledge to your scope let's let's say you need to write some codes but it's one thing to write the code blindly another thing is to write the code when your  when you're   rug it's aware of the whole requirements now LM studio you tested it earlier on a previous  on a previous stage in this in this program so LM studio allows you to load a model from here I prefer Jema models mostly if they are very   light small very perform at the same time and very knowledgeable so you can  you can use that and simply ask questions right what is the meaning of life or maybe what is the  owner of cyclone clearly doesn't know especially if the owner has has been changed  in the past I don't know week right so what we can do is to go here a test dump file upload file and attach anything any PDF and then has the same question which will actually give you more information about  let's say I have this document which I'm calling it cyclone sorry you're still shooting them rounds of course ah okay okay one sec yeah  LM studio okay okay so here in in LM studio you can ask was the owner of cyclone it knows what is the owner based on its own data like from 2023 probably you can upload a file such as cyclone let's let me find  I have a note okay note pad so you can upload that one you have this  in in your  in your homework right and then in there in that document it was written that Alex is a Korean guy he's he's just something that I made up it's owning cyclone right it's a virtual name but basically it was able to retrieve data from here now you can configure that it's it's not only LM studio doesn't work only with uploading files you can go to settings here you can you can  you can  you can play with system prompts you can play with models the models that you want to choose right or you can go to developer mode and you can play also with  with the with the context and the the way it's loading the the data so that it's actually also acting as a dog  I think there is another said no actually no now it's a more limited but it's still working with your current  with your current stack locally and so it's it's it's helping you for privacy then further you have anything lm this is another product which is super powerful anything lm looks like this and let me let me share that screen now i think this one so anything llm basically is able to talk to your lm provider which is either holama or lm studio those that you you saw on the previous on the initial sessions so you can choose anything you can choose even open AI you can choose any any any model you like let's say i'm using lm studio the current one that is working is running i'm choosing the model here and then you have the option to choose your vector database in this vector database anything lm it's able to take your files and store them into into this vector database and this is much more powerful than you would have in  in a in a normal instance of lm studio because if the document is too too big it's it exceeds the context window of lm then lm studio will not be able to handle that but anything lm store this to a database so it doesn't have any limit basically here it's splitting the data in smaller parts and then it's identifying only the relevant one and when you ask a question that relevant part is going to to to the lm and it's answering your question you can choose even what embedder you need to use the embedder basically means the the model that gives you the embeddings those vectors these are other neural networks but that's all you need to know is there there are something similar to lm if you like but they are specialized in only finding similar concepts and many other many other functionalities i think anything lm it's probably the most complete tool i found which is free which can be used by both engineers and practitioners in building their own rags so here you can load physically unlimited unlimited amount of data and then start talking to that to that start creating a context and start talking sorry press the wrong button do you see my okay so you can create your workspace and then start talking to it i have here cyclim demo this is my workspace where i have some documents loaded it it it's work it it acts acts and work the same as gems and the same as notebook lm the difference is actually that everything is locally and it's leveraging a local model which is instantiating instantiated either using olama or using lm studio or any any provider okay you can ask anything of course it's providing you something from from lm studio if i'm going out with lm studio it's hard to share the screen the same same time but i can see on the lm studio logs that this is thinking and providing some answers here i can i can quickly go there and see let you see this so you see lm studio is answering to the question on what is the meaning of life and responding back to anything lm okay it takes a while for some reasons now it's coming so this is a big question blah blah blah but this empowers you actually to play with much more content feel free to download it on the internet i can send you some some references after the session and play with it it's very intuitive so you don't need too much training on it then  next let me check here we have open web UI open web UI it's a browser based application which also has rags capabilities open web web UI it's basically doing the same thing as anything lm but it's not an application it's a web app so it can it can connect to jm i it can connect to any large language model you have you can even add more let's say llama and gpt4 and you can ask them you can ask them in parallel same thing and then you can compare the answers you can ask you you can add even more lm here i do not try more than four but it probably doesn't have a specific limit the reason why would we we would need a tool like this is that it works on web so we can we can instantiate that on our client side and it's pretty much prepared for enterprise grade it can go address and ask any lm further so you can use for your for your clients you can instantiate it there it's very intuitive because it looks like jgpt it has on the left side all these conversations then more than that it has a very nice admin panel which looks like this and within this admin panel you can go and set any model you want to it basically integrates all the models all the wide widely known models including gpt deep seek llama and so on you have different connections here you can leverage and it also has these documents feature which is a dog right so open AI itself it's able to chunk your data your files that you are uploading and using some specific instructions on how to chunk that you can even adapt and find in this after you upload your files there you you can choose how open web UI will process your input data and then you can start talking with them if you if you link this locally if you instantiate this locally on on your on your laptop and you connect it with a with an lm that comes from lm studio basically you have your own jiminai or your own your own jgpt fully locally but it's much more powerful than lm studio or than allama because it doesn't only provide an interface to an lm it provides an interface to more at the same time and it also has this radar functionality so it's more than talking to an lm it's actually talking to an lm using your your documentation as well this is very powerful feel free to try it and ask any questions if you if you have if you have any issues we are a bit over time I have two more products to review here one of them is glean so glean does the same thing as open a open web UI does or the same thing as custom gpt from open a i does but this is fully enterprise so you can we evaluate it for instance and we are discussing now with a with a client and adapting it what glean is able to do it's to plug in everything you have within your organization all the knowledge you have analyze your data do do the research even convert some graphics to code or the reverse it has an agent builder it has an agent orchestration unfortunately the demo is not for free you can only watch youtube videos on on glean but in general it does the same thing as open you open web UI or lm studio or anything lm does but it's productized so they basically instantiated on their site they are plugging in into their lm's they are paying for their lm's all you need to do is just go plug in your no data sources knowledge sources there and then feel free to explore the whole organization it's like they are providing notebook lm's for the whole company and the the information is of the share so you don't need always to update to upload your documentation there it's already there it's already indexed it works really quickly and anyone in the organization will not need to spend time on organizing notebooks all all data it's already there and similarly source graph source graph is another it's another it's another product that does similar things as notebook lm if you like or as custom gpt is I can show how it works we have it a list with taryx and with one client so source graph is able to index a lot of three repositories is basically the rug for code the same way as notebook lm or custom gpt works for with with documents with english source graph works for for coding notebook lm anything lm lm studio all these are not that great unless the the lm behind them are handling nicely the code part they are not excelling this part but source graph it's it's dedicated for this you can go to deep search for instance and ask anything about your codebase so for instance this is this is a question I addressed some time ago I wanted to track the changes that were made to a product after few iterations the prompt was pretty pretty large after 118 iterations so it did 118 steps looking through the whole codebase here are the steps it identified what what are what are the relevant documents or code parts or files with with the code right so identify what are the relevant files and then provided a comprehensive answer which looks like this so it it was able to summarize to look to millions of lines of code and summarize give give this give fast this this summary and then we can ask for that of course but we we were able to understand what has been changed regarding member profiles let's say and this is the code that is essentially doing the the major difference it even give us some diagrams so this is very extremely powerful if you use it in combination with an notebook lm or with a custom gpt you can you can basically achieve what I presented a few sessions ago on closing the loop within the software development lifecycle so you have all the documentation and all the code the holistic understanding of all of them so now you need of course to be aware that rags have some pros and cons pros are definitely what I mentioned earlier that they are reducing hallucinations they are giving more than just the lm does they are can be modular can be can be created in many ways like notebook lm on web within proprietary lm or with lm studio directly or with anything lm on top of some local lm like you can do it in many ways but they also have some some cons for instance the retrieval quality it really depends on the data if you throw there a lot of data which is contradictory it will start hallucinating it requires a lot of infrastructure such as vector databases indexing pipelines chunking pipelines and what does it mean it means sometimes it's very hard to maintain so that it means some clients simply choose not to use it and rather prefer to buy a product such as glean they also have limited windows so you are always relying on the context window of an lm the limitations that they have mostly they don't learn from the feedback directly right they don't learn from anything you need to build algorithm logic to do that because lm are not able to learn in real time if they if you provide conflicting or outdated sources it will give you answers according to the sources that you you provided and as a consideration the most important is rug it's probably the most the most relevant breakthrough that happened in 2023-2024 within our industry but now on top of rugs systems because now AI systems are able to handle more knowledge in this way using rugs they are going towards build toward evolving towards agenteic architectures and this is the topic of of our next module starting next week we are discussing about how to upgrade rugs and make them agenteic rugs most of the of the of the AI agents have some rug their foundation not necessarily all of them but the enterprise cases in most cases actually they are handling knowledge so some key takeaways before answering the question is make sure to to to make a difference between a rug and using lm's because lm's are not able to to learn and to understand more than they were trained initially with so rug helps in this regard with factual accuracy with real time data they are helping by reducing the hallucinations on of the lm's they don't need any retraining on the other hand they are a bit more slow than just talking simply to lm because it's it's just another man in the middle you are not asking the lm directly you are asking an only base first retrieving the prong the the context and then go to the lm that's why even charge pt it's not real time nothing doesn't work in real time they have limited reasoning and context awareness because no matter how you choose to split your documents and build a rug system the lm still have limited context awareness like they they cannot they cannot process more than a specific number of tokens or if you if you are to reduce the words let's say a few thousand hundred thousand words right doesn't dozens tens of thousands of words let's say maximum right so that's why you always need to to handle this gently and this comes with a lot of challenges now I think this is the end of the first of the first part of the first half of the session for the practitioners feel free to stay longer if you are interested in how to build actually if you want to build in house or ag like this we will we will look on some codes but first of all I would like also to answer to michaelo question or to Thomas as well so can source graph work with several repositories at the same time for instance for example our customer has many teams working on many services can we utilize it to get familiar with all the code across the organization and provide a source based on all the knowledge like architectural questions interactions and dependencies between services and the the authorities yes I can show you here we have 74 repositories 77 now from all all data sources such as github and bitbucket so that's super powerful because it's actually bridges different data sources I have a a YouTube recording on this topic and I will I will I will share this with you through to the group chat let me see if I can find it here yeah so is this one you probably do not see yeah you probably do not see it but I will share it on the group chat maybe it's the time stamp is not it's not actually the right one let me okay so yeah through graph it's able not only to look through all these code repositories but it's also able to look through across commits and across versions so you can compare an older version an older an older branch if you like of a repository with a new branch of another repository so that it's very helpful when when you want to migrate from I don't know from a technologist stack to another or when you want to migrate from some legacy logic to a modern logic it's very helpful when you need to build regression testing it's very helpful when you need to build to identify gaps between repositories when you need to understand how much of the code it's actually implementing everything you have in the requirements so yeah it's it's it's extremely powerful if you like we can take this separately we can we can discuss more about it definitely cannot that don't have time this session dive deep into specifically this question but there is a lot and the video I posted from from speakers cannot on youtube is very is relevant in this regard so much I was interacting with my gpt and out of curiosity I asked it what it knew about me and it's new about topics I was asking it oh yeah of course I told the lm learned about me through the conversation it just it is that just some other mechanism I was logged in in my account yeah of course actually if you go to custom to gpt here you have this personalization and you can you can enable customization you can then wait I think it's here yeah you can you can disable or remember disable or enable memory if you reference save memory is basically it's allowing it from time to save some summaries about your conversation and it will always get back to them if you have a record history if you enable all of this it basically going even across conversations and bring bring information about you and you will see all everything it knows about you you see here in saved memories so it's always using them I generally do not use this because when you analyze a lot of code you will give into a conversation some version of the code into other conversation other version of the code then it will start mixing them up so I'm disabled in everything related to memory there is also another account here setting where you can this is an enterprise account probably doesn't have this but in personal accounts you can add your own description you can say I'm too much I'm leaving there and I'm doing this and that so other than that it doesn't know anything about about you unless it was trained with some information about you unless you are very popular or unless it's searching on web of course but this is not at the LLM level it's the chat GPT application layer now thank you very much all for for attending this first part of the session on products and how we can
 --- 2 part Databases for GenAI.txt ---
  session we can skip your slides. So in this session we will focus again we will reiterate a bit about the rug and we will go a bit more deeper in embedding, vectorization and other rug systems and possibilities and we should come to the state where we can even build quite big and reliable a rug system that will utilize rug. At this this slide I can skip. So we will focus on the foundation then more advanced rug patterns and some dosandons for production readiness and here we will cover even one of the questions that we had for the previous session. So on the foundation so what is in general like embeddings? So we have the problem with that example like words, machine learning algorithms, ML techniques and deep neural networks that's basically computer doesn't understand similarity of that words. Computers still understand only like numbers so it cannot help us to define just from the simple text are they similar or how to find. So basically like embeddings it's a transformation of the text to the numeric representation on the vector. So when we talk about like machine learning then for the for our embeddings we have like this representation of the numbers depends on the dimensions. So it's like on this exactly like image we have 500 36 dimensions so it's basically like graphs with the different points and in the dimension of this size we are we are putting the representation of this work on that graph. The same like for the ML algorithms, pizza and stuff like that. And if we are asking like about like machine learning for example then computer based on that vector representation and number representation can understand if like machine learning for example because we already transformed the representation into the numbers if it's close to some of the like information that we have right now in the vector system or it's far. So based on like close and far it's basically like vector databases when we set up like choose top five results providing to us with the answer from the five closest objects and then transform this to the text and we are basically getting that's that's text that's most closest to to the text from our request. In this case like for the machine learning ML algorithms is quite close because the distance 0.02 and if we just want to get only one like top element then we are getting ML algorithms. Pizza recipes is quite far so most probably system will not suggest this to us. And if we are going a bit like deeper to the exact like similarity search how it works. So we have our documents we already discussed about the rock pipeline so it's already transformed to the numerical representation from the embedded models and it stores somewhere here to the vector to the vector store. And we have like three documents and we fully indexed that documents and it's stored. And when we have a search and if we have like user query, query learn Python then based on that documents that we stored our system identified the distance for our request and in this case quite close somewhat close and far away. If we set up that we want to pick up two top results so in this case we will get Python tutorial and Java programming as well. And then LLAM may be make a decision that's to show only like Python tutorial but it can be the case that it will provide as a output to the user both like Python tutorial and Java programming because quality of the LLAM play quite significant role in this case as well. Quite often like similarity metrics that systems identified this is angle between the vectors sorry straight line just distance between them and in some cases some dot multiplication in that systems. So why is like embedding quality matters because basically it's mean that how reliable answer will our user of our system will get. And right now MTB metrics to be honest I don't remember exact like this full abbreviation but I provided the link to the leaderboard and you will see what exactly it's mean what's the abbreviation. So this is the approach how to how current embedding models evaluated on the quality of their basically embeddings and accuracy of their embeddings. And in the point of time when I was preparing this presentation a few of the main or like token embedding models basically from the Google and token AI and one of the open source knowledge search but right now I guess Chinese embedding models on a good spot there as well so you can try and play. And why exactly like embedding quality matters if we will see the different case studies or researchers you will still see that any embedding model or embedding system can provide 100% of the accuracy because still LLM or like similarity search can be like mistaken mistaken interpreter and one of the like best results that you can find like on the Google website for example it's research about the legal discovery so they put 1.4 million of different low documents with utilization of Gemini embedding and they achieve 87% accuracy and it's like for sure quite good number and with another like application mind lid they achieved 82% of three top results recall in terms of the matrix it's as well quite good result and in which what is good with the direction of embedding models and we discussed a bit when we discuss about chunking strategies that's when you utilize like additional ML or Genie or embedding models it's additional time for indexing and it's additional time for the compute so it's much slower Gemini embedding already showing like quite good results in terms of the speed so they tried to vectorize 100 emails on one of the study and they achieved 21 and half seconds for vectorization of all of that emails and just to give you perspective of how it fast and what is the how fast we are moving to improving all of these tools and systems the previous result was more than 200 seconds so the order of magnitude in terms of the speed increase for the vectorization in 10 times so that system much more like improved and we are going like on that speed and that changes with many models systems and tools in AI world because people experimenting companies putting a lot of effort in this race so to say and if we will talk a bit more about the databases exactly for the vectorization this is where I wanted to mention about the speed of changes as well because early I had this slide why we need to have like separate database for embeddings and that's like current databases like systems they have different algorithms they don't have everything that is needed for the embeddings that they quiet slow for the embeddings and it was but post-griest is moving with their extension they're moving in quite rapidly and catching up the speed question and especially amount of the operations basically like queries per second that they can handle and a lot of the researchers already show that post-griest is quite good alternative to the specialized even database for the RAC so you can see that's for example like faster than pinecon and for sure like cheaper and still open source and for quadrants it can handle much more request per second but it's on a huge amount of the data so they tested this on the 50 million embeddings and this is where like quadrants start degrading with the speed of working so potentially you can use just that database that you use that you use to and you just need to add additional extension for the embeddings until you can continue playing with your lovely post-griest but still we have the databases for the vectorization and they still play their own game and for what use case for what systems they have the best results and it was already mentioned about like chroma today and chroma is quite good when you start in some of the prototyping it's less rare used in some big production systems but they already have their cloud roma I didn't try and still they have some  like limitations so chroma database quite good when you start in end prototyping because it's quite easy to start you just pipian style chroma and almost everything is working so minimal configuration and you are starting almost like immediately with that it still has quite good additional functionality like for example metadata filtering this is the additional information to your embeddings that you can provide as an example I've already mentioned for example like category of the document that you are feeding if you have like many of the documents and chunks for example in the metadata you can still additionally provide information about what exact document from from from from chunk is and different like multiple collection support when we are moving already like to the stage of potential MVP or already quite big production system then we need to have more reliable solution and here we can look in the direction of quadrant or for example like postgres with the pg vector extension and on the previous slide you you saw that quadrant not so good on 50 million vectors in terms of queries per second but when it's in the in the measure between like one to 10 million it's really quite quite fast and can handle a lot of the requests like for example for one million it's 626 queries per second and it's really quite fast and for that if you have that range of the vectors and you need to have quiet rapid embedding quadrant is a good choice in general but if you have like billions of vectors then this is the question about another type of the system and Milsvus and they have this embedding database in a cloud it calls Zleen it's already fully designed for quiet huge vector systems and it doesn't make sense to use this database for like much smaller systems if you have under 10 million vectors so do not recommend because that's that data and that's systems that going from the left to right it's then just harder like more complex to support setup and configure so that's why you are starting from the simplest one just for the rapid start and when your system is growing you are moving to the let's say next one and issue them just fulfill their purples and about like wrap patterns wrap patterns in addition to the embeddings because we discussed about the embedding vectorization it's not only one pattern or approach for the rock systems in addition we can have this problem with the multi-hop reasoning with the connection and in the cases where we have like a bit more wake request and we need to identify the connection for that request in most cases rock traditional vector rock systems they are failing and in example that I provided and the problem that we need to have like connection built from our request that user asks like marketing budget compliance GDPR and basically Europe and this is the the connections and this is exactly one we need already to utilize graph system and graph rock in addition and it helps to increase reliability of our system together with LLM and quite often this is like a representation of the graph that we have and when we our user making the request it's just like getting some of the information from the request and learning the different connections and based on the connection that we have in the rock representation it can provide much better answer if we do not have like explicit information and one chunk of the information that we are grabbing from our vector system is not enough. main players for the graph rock solutions so now for Jay, Falcon, Tiger, Graph, Mamm Graph and ArangoDB mainly we are playing like with the now for Jay because you can easily like install it on the York laptop and I guess it's one of the most popular solution I would say. the next problem that's quite often come in the PDF processing problem so in the PDF we can have images in the PDF we can have tables and maybe some formulas so it's quiet complex documents to parse for the LLM and in the traditional rock pipelines we have like OCR objects so basically the ML system or it can be like LLM that can look exactly on the PDF and then provide in the text in the text view describe what it sees on the PDF and then we can just like vectorize it quite easily. still we have like issues with the tables quite often and here like some OCR again can help some other approaches, captions so instead of like using complex trivial system and that's relying on OCR because they quite often like failing with that we can just use some embedding model that can understand what it sees so just embed the image and one of the interesting approach to solve this question for the last time it's quite like you let's say approach it's called poly library changes so they instead of like using OCR just for the describing what information exists on the PDF and then vectorize that information they have like vision language model for that and image representation just split to the patches and then that patches basically embed to the model and when we have the retrieval then we utilize that embedding model and still like visual language model to give the answer what we have from the images and this approach shows much better results in terms of like a rock system retrieval of the information from the system and it showed better result like 15% it's approximately then standard to three-wall system with the OCR that we have so to answer on the question quite often when we utilize the PDFs when we have a PDFs as documents we utilize the OCR for describing of that documents and then we store the information but this approach with the call poly showing quite interesting results and maybe it's something that will be used much more often in the future as the as a part of this type of rock systems but still mostly OCR approach used and a bit about like agentech rock because in AI right now everything changed to the agentech rock and for sure this is quite interesting and quite reliable approach so in the standard rock we have query and that query go into the embedding model then we query the embedding vector databases then vector databases provide to us like candidates like top candidates and then our query so our request plus candidates that our vector database provided goes to the llem llem then process all of that information that we put and then provide to our user the answer when we have the agentech rock we have type of like rotor agent llem and then within the two set that's available for that llem it's choose where to to roll that's request so to the rock search some external APIs or take in control of the over the world and then only providing the output message here we will have a bit more information on that so agentech patterns and mainly like query routing requests some of the the composition and self correction approaches in the agentech rock system so when the user make the requests what the latest on AI regulation so llem rotor detect like latest then we will utilize the tool road to web search so that's why I said like in general if we are saying that we add just additional tool like web search yes it's to some extent rock system and like when we talk about the query the composition so we have a compare our q3 to industry and predict q4 and first of all we have the the composition of that request that's agents our llem bricks like our q3 matrix then we need to find this information in our internal database or a vector system industry q3 benchmarks potentially we don't have this information it's publicly available then web search and q4 factors again goes to the internal DB but again it's can go to the web search as well and the search pattern its self correction so we first have a retrieval then we get in the documents then our agents based on some identified our like threshold measure this and if a score is like lower than our threshold then it can even like rewrite the query and then basically like a retry again this approach with the retrieval grade docs and it can be cycled few times this self correction and when it's it's to use well when we have like why it's complex worries and in cases if everything else that we discussed earlier failed and you needs to have like more higher accuracy if we have when we shouldn't use this it's for the simple retrieval and if our top quality attribute for our system is latency because you understand that this agentic systems when we have llem and needs to increase the quality of their results the time of these types of the request is growing i guess we will need maybe a xanae guess our time is and yes we are a bit out of time if you have a time you can continue and also colleagues if you have a little bit of 10 minutes you can continue this session. I will try to finish this like in five minutes and then we will have five minutes for for the questions I just will not stop quite deeply on each of the slide just few words and what is the information important from that in addition to increase the quality of our rock systems and why I mentioned earlier that you shouldn't rely only on the vector search in addition you can utilize like best much search this is what bm25 it doesn't have semantic understanding but it's calculated the number of words that it finds like the same word that it's finding the different documents and can provide based on that statistic statistical calculation what the documents we should become and on the researchers when we have like a hybrid system approach in terms of the search vector plus this bm25 it increases accuracy for a bit more than 10 percentage and dcgs3 this is like tops we recalls basically tops we candidates that we saw earlier on the diagram and when we add the rerunter in addition it's even increased to 37.2 percentage rerunkin is additional layer that we add into the system and we are grabbing from our vector system or from our database a bit more results so we are we are grabbing instead of like 510 candidates we are grabbing 100 candidates and then our rerunkin system try to understand what the best candidates for us and then provide us a result to the lm like 5 or 10 or maybe 3 of them and production readiness so basically what to do don't hybrid search is the best we discussed in addition about like a genetic search we discussed about the graph and where it's the most useful and what the databases you can utilize so based on your case based on what you need to achieve you can use any use any of that tools metadata filtering it's quite helpful especially when you need to have like metadata in general like a story of the metadata quite helpful especially when you need to have their sources seated like for example when you make the request and get not only some information from your documents in addition the citations from what documents that information is evaluation of your system embedding three indexing and evaluation of the system quite often because you are making their updates and you can continue improving your system so don't it's like opposite of the dos so just quite helpful for you to not forget what you should do for the production systems and thank you so we have one question in our chat does embedding library I use for for my rock must match embedding library I used for training my lm embedding library for training your lm can you maybe give a bit more details yes so before training lm as I understand I need to embed like all the text and everything and do the embedding yeah when you have a rock system you do not train your lm like fine tunes your lm yeah it's not about I mean like when I train my lm I use some embedding for example from from Facebook or Google do I have to use the same embedding library for my rock I mean as I understand like to put something in rock you also need to do embedding do you mean when you are storing the documents to the vector database and when you are retrieving the documents from the database do you need to use the same embedding library when it generates the knowledge and the knowledge based okay and the version and everything should be the same and identical with the live with the lm yes sometimes especially like from one provider they are compatible one and another but you need to double check this information but general answer is yes good you thanks other question we have metrics like n gcg or recall require ground truth answers should they come from humans this one you are preparing you're preparing in most cases yes because you are preparing the expected results on your request so yeah mainly it's human prepared metrics thank you Maxim colleagues other questions maybe you have I have a question thank you so thank you for the session and in one of the latest slides you mentioned that we have to evaluate often and I think this is the most complex task when it comes to building a i-based solution so my question is whether we'll have any session any session that will explain how to build this evaluations for our systems or overall like agentic systems so the question is about evaluations I will double check maybe in the next sessions that we will have on the rock enterprise productized maybe we will have a decision on evaluation or we will discuss with our colleagues that we should potentially like add this as a part of our education because right now what what I see I don't see like exact evaluation in the session but potentially it's a part of some of the next sessions thank you why I said not only because preparation of the data it's not so easy as well without evaluation you just don't know whether you did good job at preparing your data or not so you can be building a system for like weeks or months but if you do not have any metrics to check its accuracy and performance then it was for nothing so as always human in the loop can save you from that but yes depends on the scalability of your system and all of that parameters yes I agree but in general what can I say it's not so easy still a question for the evaluation in general with with all of this alarm systems because they are like they are not like deterministic systems and still you need to identify the proper way how you can like even identify the top three that's a system should recall so different approaches in most the most the approaches like some another LLN utilized if you are not utilizing the people to to prepare the data so it's still not finalized question even for in general for the AI industry I would say
---- pdf_text.txt ---
---- Databases for GenAI.pdf ---
-1
-Place for photo
-Databases for 
-GenAI
-Embeddings, Vector Databases & Production 
-Patterns
-October 2025
-2
-Speaker
-Maksym Lypivskyi
-Head of Cloud Platforms & 
-AI Director
-●
-9 years at Ciklum driving large-scale cloud and 
-software delivery initiatives
-●
-3 years specializing in AI
-●
-Core interest: making AI systems reliable, 
-production-ready, and business-impactful
-3
-Agenda
-01
-02
-03
-Foundations
-Advanced RAG patterns
-Production readiness
-4
-Foundations
-5
-What Are Embeddings?
-The Problem: Computers don't understand text meaning
-"machine learning 
-algorithms"
-"ML techniques"
-"deep neural networks"
-Are these similar? How 
-do we compute that?
-6
-How Similarity Search Works
-The Vector Search Process
-Documents → Embedding Model → Store vectors
-Doc 1: "Python tutorial" → [0.2, -0.4, 0.6, ...] → Store
-Doc 2: "Java programming" → [0.3, -0.5, 0.5, ...] → Store
-Doc 3: "Cooking recipes" → [-0.8, 0.9, -0.2, ...] → Store
-1. INDEXING
-2. SEARCHING
- User Query: "learn Python" → [0.21, -0.42, 0.58, ...]
- Compute distances to ALL stored vectors:
- - Distance to Doc 1: 0.03 ✓ (very close!)
- - Distance to Doc 2: 0.15 (somewhat close)
- - Distance to Doc 3: 0.91 (far away)
-Similarity 
-Metrics
-- Cosine similarity: Angle between vectors (most common)
-- Euclidean distance: Straight-line distance
-- Dot product: Vector multiplication
-7
-Embedding Quality Matters
-🏛 EVERLAW (Legal 
-Discovery - 1.4M 
-documents)
-https://huggingface.co/spaces/mteb/leaderboard
-Model
-Provider
-MTEB
-Dims
-Price/1M
-stella_en_1.5B_v5
-NovaSearch
-71.54
-1024-8192
-Free (OSS)
-gemini-embedding-001
-Google
-68.32
-3072
-$0.15
-text-embedding-3-large
-OpenAI
-64.6
-3072
-$0.13
-text-embedding-3-small
-OpenAI
-62.3
-1536
-$0.02
-💬 MINDLID
-📧 INTERACTION CO 
-(Email Assistant - 100 
-emails)
-87% 
-accuracy
-82% 
-3 recall
-21.45s 
-embedd
-8
-PostgreSQL Revolution
-9
-Architecture & Performance
-- Rust-based for maximum speed
-- 626 QPS at 99.5% recall (1M vectors)
-- Sub-3ms p95 latency
-- Open-source (Apache 2.0 license)
-Memory Optimization: 
-- Binary Quantization: 40x memory reduction - 
-Scalar quantization 
-- Product quantization
-Advanced Capabilities:
-- Native hybrid search (dense + sparse 
-vectors)
-- Advanced payload ﬁltering
-- Distributed architecture for horizontal 
-scaling
-- RESTful and gRPC APIs
-From MVP to Scale
-Mid Size High-Performance Vector Search
-Architecture & Performance
-- Built for massive scale (billions of vectors)
-- 2,098 QPS at 100% recall (10M vectors)
-- Sub-10ms latency on performance 
-conﬁgurations
-- Open-source (Apache 2.0 license)
-Memory Optimization: 
-- Int8 compression: 75% memory savings
-- RabitQ 1-bit quantization
-- Multiple quantization strategies
-Advanced Capabilities:
-- GPU acceleration support
-- Up to 100,000 collections per cluster
-- Distributed architecture with query node 
-separation
-- Multiple distance metrics and index types 
-(HNSW, IVF, DiskANN)
-Architecture & Performance
-- Embedded database (runs in-process with 
-your application)
-- 112 QPS at 10M vectors
-- Python and JavaScript SDKs
-- Open-source (Apache 2.0 license)
-Memory Optimization: 
-- In-memory and persistent storage modes
-- Optimized for datasets under 1M vectors
-- Simple distance functions (cosine, L2, inner 
-product)
-Advanced Capabilities:
-- Zero-conﬁguration setup (pip install 
-chromadb)
-- Metadata ﬁltering
-- Multiple collection support
-10
-Advanced RAG patterns
-11
-11
-The Multi-Hop Reasoning Problem
-Complex Query:
-"What are the regulatory implications of our Q3 marketing 
-strategy for the European market?"
-Traditional RAG fails
-Retrieves isolated chunks:
-🆇
-- "Q3 marketing strategy increased 
-social media spend"
-🆇
-- "European market regulations 
-overview" 
-🆇
-- "GDPR compliance requirements"
-Problem: Can't connect the dots!
-Marketing → Budget → Compliance → GDPR → Europe
-This is where we need Graph RAG
-12
-12
-GraphRAG Solution
-13
-13
-The PDF Processing Problem
-🆇
-OCR → Errors with complex layouts
-🆇
-Layout detection → Misses table structures
-🆇
-Figure captioning → Expensive specialized 
-models
-🆇
-Chunking → Loses visual context
-🆇
-Embed text only → No visual information
-Traditional RAG Pipeline for PDFs
-Result: 40-60% information loss on 
-visual documents
-14
-14
-ColPali Revolution
-Treat Pages as Images (No OCR!)
-Architecture
-●
-PaliGemma-3B Vision Language Model
-●
-32×32 patches = 1,024 patch 
-embeddings per page
-●
-ColBERT late interaction matching
-15
-15
-What Makes RAG "Agentic"
-16
-16
-Agentic Patterns
-Query Decomposition
-Complex: "Compare our Q3 to 
-industry and predict Q4"
-Agent breaks down:
-●
-"Our Q3 metrics" → Internal DB
-●
-"Industry Q3 benchmarks" → 
-Web Search
-●
-"Q4 factors" → Internal DB
-Then synthesizes all results
-Self-Correction
-1.
-Retrieval
-2.
-Grade docs
-3.
-Score < threshold?
-4.
-Rewrite query 
-5.
-Retry
-6.
-Grade again
-Query Routing
-User: "What's the latest on AI 
-regulation?"
-Router: "latest" detected → Route 
-to Web Search ✓
-User: "What's our Q3 marketing 
-budget?" 
-Router: "our" = internal → Route to 
-Vector DB ✓
-✅
-Use When: Queries span sources, complexity varies
-🆇
-Don't Use: Latency-critical (<500ms SLA), simple retrieval
-17
-17
-Hybrid Search + Reranking Power
-Vector-only: Misses exact matches, acronyms
-BM25-only: No semantic understanding
-Anthropic Contextual Retrieval 
-Study:
-- Baseline failure rate: 5.7%
-- Hybrid + Reranker: 1.9%
-- 67% reduction in retrieval failures
-2 Stage Architecture Rerank:
-Stage 1: 
-Similarity search → Top 100 
-Stage 2: 
-Re-ranking pipeline → Top 5-10 
-Microsoft Azure AI Search 
-Benchmarks:
-- Vector-only: 43.8 NDCG@3
-- Hybrid: 48.4 NDCG@3 (+10.5%)
-- Hybrid + Reranker: 60.1 NDCG@3 
-(+37.2%)
-✅
-Use When: Queries span sources, complexity varies
-🆇
-Don't Use: Latency-critical (<500ms SLA), simple retrieval
-18
-Production readiness
-19
-19
-Don’ts
-🆇
-1. Vector-only search (use hybrid)
-🆇
-2. Ignore access controls (data leakage = 
-lawsuit)
-🆇
-3. Overload context window (keep <50%)
-🆇
-4. Skip evaluation frameworks (doesn't 
-scale)
-🆇
-5. Neglect data freshness (stale = wrong 
-answers)
-Do’s
-✅
-1. Use Hybrid Search (vector + BM25) as 
-baseline
-✅
-2. Implement metadata ﬁltering 
-(security-critical)
-✅
- ﬁlter = {"department": "ﬁnance", 
-"access_level": user.role}
-✅
-3. Monitor retrieval quality (recall@k, 
-NDCG)
-✅
- Tools: TruLens, LangSmith, DeepEval
-✅
-4. Keep embeddings fresh (re-index on 
-doc changes)
-✅
-5. Evaluate systematically (not 
-"vibes-based")
-Production Best Practices
---- RAG Intro.pdf ---
-1
-Place for photo
-RAG
-Intro
-October 2025
-2
-Speaker
-Maksym Lypivskyi
-Head of Cloud Platforms & 
-AI Director
-●
-9 years at Ciklum driving large-scale cloud and 
-software delivery initiatives
-●
-3 years specializing in AI
-●
-Core interest: making AI systems reliable, 
-production-ready, and business-impactful
-3
-Agenda
-01
-02
-03
-Deﬁnition & Beneﬁts
-Use cases
-Limitations
-4
-The AI Adaptation Landscape
-Where Does RAG Fit in Your AI Strategy?
-●
-Need fresh, proprietary knowledge
-●
-Don't want to retrain models
-●
-Cost-effective scaling
-Our focus today
-5
-What is RAG?
-Retrieval‑augmented generation (RAG) is a 
-pattern that augments an LLM by retrieving 
-relevant information from external sources at 
-query time and injecting it into the prompt.
-6
-Why RAG Matters?
-●
-Fresh Additional Knowledge. RAG lets 
-you ground answers in recent 
-documents, internal wikis, or databases 
-without retraining models.
-●
-Better Accuracy. By retrieving 
-authoritative evidence, the model 
-generates more accurate answers and 
-can cite sources.
-●
-Adaptable. Effectively handles novel and 
-niche queries that weren't in the model's 
-training data.
-●
-Increases Efﬁciency. RAG grounds 
-prompts with smaller, targeted chunks of 
-information that streamline retrieval and 
-generation.
-7
-RAG Pipeline Deep Dive
-8
-Chunking - The Critical Decision
-Why Chunking Matters
-LLMs have limited context windows (32k-200k 
-tokens). Large documents must be divided into 
-smaller pieces.
-The Challenge:
-●
-Too large → loses specificity, poor retrieval
-●
-Too small → loses context, fragmented 
-information
-9
-Three Main Chunking Strategies
-Strategy
-How It Works
-Pros
-Cons
-When to Use
-Fixed-Size
-Split at 512 
-tokens, 15% 
-overlap
-Simple, fast, 
-predictable
-May break 
-mid-sentence
-General purpose, 
-starting point
-Semantic
-Use ML to 
-identify coherent 
-units
-Preserves 
-meaning, high 
-accuracy
-More compute, 
-slower
-Technical docs, 
-complex content
-Recursive
-Split using 
-separators (\n\n, 
-\n, space) 
-repeatedly until 
-desired size
-Respects 
-structure, better 
-boundaries
-More complex 
-than ﬁxed-size
-Documents with 
-headings, 
-paragraphs
-10
-10
-Chunking Strategy Comparison
-Fixed-Size
-Recursive
-Semantic
-11
-11
-Using Chunking Libraries
-You Don't Need to Build from Scratch
-LangChain
-LlamaIndex
-Broad LLM application 
-framework
-Modular workﬂows where 
-chunking is one piece of the 
-puzzle
-●Flexible TextSplitters
-●Easy integration with agents
-●Part of larger system
-RAG-speciﬁc pipeline
-High-performance, 
-data-centric retrieval systems
-●Sophisticated NodeParsers
-●Produces optimized "Nodes"
-●Built for ingestion/retrieval
-12
-12
-RAG real world use cases
-●
-AI Chatbots: RAG provides accurate answers from internal 
-knowledge bases (e.g., support wikis, legal documents). OpenAI 
-emphasises that RAG is valuable when the content is not part of 
-the base model’s knowledge .
-●
-Search & discovery: Search systems combine keyword and 
-vector search to surface relevant documents in e‑commerce, 
-research and legal discovery.
-●
-AI Copilots: Tools like Supabase AI Copilots use vector 
-databases to ground responses in proprietary data and maintain 
-multi‑tenant isolation .
-●
-Long‑context reasoning: Databricks’ long‑context benchmark 
-shows that Google’s Gemini 2.5 models can maintain consistent 
-performance on RAG tasks up to two million tokens (longer than 
-most models), whereas OpenAI’s GPT 5 models achieve 
-state‑of‑the‑art accuracy up to 128k tokens .
-13
-13
-Common Challenges
-●
-Chunking & context windows: If chunks are poorly deﬁned, the retrieved information may miss critical context 
-or include too much irrelevant text. Research by Analytics Vidhya notes that ﬁxed‑size chunking can break 
-context while semantic‑based chunking preserves meaning but requires more compute .
-●
-Model context length: Models can only ingest a ﬁnite number of tokens. Databricks’ benchmark observed that 
-performance of LLMs like Llama‑3.1 and GPT‑4 starts to degrade when context windows exceed 32–64 k tokens 
-.
-●
-Retrieval quality: The quality of the vector database and retrieval algorithm determines recall. Missing relevant 
-documents leads to hallucinated answers.
-●
-Latency & cost: Large vector databases and embedding models can be expensive and introduce latency.
-14
-Don’ts
-🆇
-Rely solely on vector search
-🆇
-Ignore security and access controls
-🆇
-Overload the LLM context window
-🆇
-Neglect continuous updates
-🆇
-Skip evaluation frameworks
-Do’s
-✅
-Start simple, iterate based on metrics
-✅
-Use metadata ﬁltering (product, language, 
-permissions)
-✅
-Combine vector + keyword search (hybrid approach)
-✅
-Monitor retrieval quality (recall@k, precision)
-✅
-Keep embeddings synchronized with documents
-✅
-Evaluate with domain-speciﬁc questions
-Do’s and don’ts for RAG
-15
-15
-Three Main Chunking Strategies
-Scenario
-Stack
-Key Reason
-Learning
-LangChain + Chroma + 
-sentence-transformers + Ollama
-●
-Learn fundamentals
-●
-Risk-free 
-●
-Runs on laptop
-MVP
-LangChain + Qdrant (self-host) + 
-OpenAI/Gemini embeddings + GPT-4o-mini
-Professional quality at 
-startup budget
-Enterprise
-LangGraph + LangSmith + Pinecone + 
-OpenAI/Gemini + GPT-4
-●
-Agentic workﬂows
-●
-Observability
-●
-SLAs
-16
-✅
-Chunk size: 512 tokens
-✅
-Chunk overlap: 15% (~75 tokens)
-✅
-Top-k retrieval: 3-5 chunks
-✅
-Embedding dimensions: 768-1536
-Default Conﬁguration 
-(Works for 80% of cases):
-17
-✅
-RAG = Open-book exam for AI - Retrieves external knowledge at query time
-✅
-Chunking is critical - Start with 512 tokens, 15% overlap, then iterate
-✅
-Hybrid search > vector-only - Combine vector and keyword search
-✅
-Start simple - Use Chroma + LangChain for learning, scale as needed
-✅
-Always evaluate - Track recall, precision, and answer quality
-Key Takeaways
-What You Should Remember
+--- 2nd Part_Architecture & Design Patterns.txt ---
+ I believe it will still be interesting to stay if you have time. The next part is about how we actually do the architecture of this rug. And what are the design patterns that we are using. So in this section we are discussing about data chunking, about advanced retrieval techniques. Sorry, it's a duplicate here. Some reasons. Next, then about history management because the rug is actually also a mechanism to store history. Imagine having an knowledge base, but then you cannot or you don't necessarily want to go always to the knowledge base because some of the information is very new. It's just something you just discussed. The history actually it's just another knowledge base that the rug systems are leveraging. And then the whole kids how to build this context awareness. The context awareness is basically identifying the best way to identify your. The most similar part of the of the documents that you have stored in your knowledge base. Of course, coding part, but I will most of the times spend on this coding part and addressing these these three topics because you will see them how they actually are implemented. Just to have a quick overview of the concepts data chunking basically means. Not allowing the LM ingesting everything you have within your knowledge base. So what does it mean? It means you need to split it. You need to divide your your input into some smaller parts. And we have different techniques such as fix size variable chunking semantic chunking. Then after you are splitting it, you are saving this into some vector databases. And here is a list with comparison between them today for for the demo we'll use quadrant database. But it works pretty well with postgres. Postgres also has support for vector debits. Now more and more data bases actually added support for for vectors. So what they actually do is storing these vectors into into that into database there. And when you ask something it applying one of these formula and brings you the most relevant identified the most relevant vector. And a question from one of them do we know or can we control what chunking mechanism is using products you shared in the first part. Yeah, that's a great question and thanks for asking it in general know unless you choose. So let's go back to the to the to the previous list. In notebook, no chance you don't have any control on chunking mechanism. It's Google's job and in gems as well is Google's task to do the chunking they decided you actually don't know how they do it. It's a black box for us. This is good for some reasons on the other hand it doesn't provide of course autonomy and cannot it blocks you doing fine tuning and you will see it's a lot of fine tuning here. It's one of the most complex concepts in general actually the data chunking as well as the retrieving part. Custom GPT as well doesn't provide any support for for for for customizing the chunking. LMS Studio does some but it's only limited to this to this variable chunking or fixed chunking. So it doesn't offer semaphonic chunking capabilities and what does semaphonic chunking mean if you have this 1000 pages document you're not splitting it centers by sentence or page by page because you may you may split some some ideas. So semaphonic chunking helps you ending the idea and then continue with the next with the next with the next chunk. So LMS Studio doesn't doesn't help you in this regard also anything LMS doesn't allow you to do this. But it's still pretty powerful because you have a lot of customizations in terms of fixed and variable chunking and variable chunking might be actually powerful you can you can choose how many centers you want how long it's your your chunk right. And different different formulas actually there is an article here I published some time ago about this techniques you don't need necessarily to review it here it's it's pretty long. But I'll show you the variables for instance you can split it by sentence you can split it by by sentence by by using the naive approach you're looking to the limitators or by using different libraries which I'm actually using in in the next. In in the next email there are also this this  recursive chunking which. First of all looks at the other separators right but actually this doesn't I mean what you want to achieve here it's not only. Have a sweetable split by by separators but you also want to make sure you do not exceed some other some other stuff such as the total numbers of characters right. What you can do some specialized chunking such as when you do not handle sentences when you handle HTML files you are looking to drags you're looking to other stuff. So going back here anything I don't give you more than more than more than this open a web UI. That's the same thing so that's one of the main reason you need sometimes to build your own drag or your own mechanism. Because most of them are not dealing with semantic chunking semantic chunking is a very complex process and there are libraries that help you in this regard such as lama index which is probably the most powerful. Lama index has different methods to help you in maybe maybe do a mind X. Semantic chunking yeah semantic chunker so it gives you multiple ways actually to do the semantic chunk chunking because even this have some thresholds you can consider everything is similar to everything if you like or you can say everything is totally different than everything depends on. Simply how you define your understanding of the world so this has also its own complexity but lama index helps in helps in this regard pretty much. It has this break point percentile threshold it's a single parameter that you need to set up you don't need to do the whole logic on analyzing centers by sentence and checking if whether the sentence is related to the previous one or not. Open UI doesn't give you too much flexibility and semantic chunking. Actually nobody if you if you look closely to this but it gives you variable and fixed chunking which is still good for for smaller context. Glean doesn't give you anything it's just just a product you you you plug in everything there you don't have too much customization. But you have the benefit that is managed by by the providers so you don't need to to handle maintainers and so so you're graph as well so it doesn't doesn't give you anything related what vector store they use what embedding model they use anything like this. Now when we talk about retrieval part you will see that there are different ways you can retrieve data from from your knowledge base so first of all it's just do the just execute the query right start with your prompt pass it through to the embedding model and then identify we in the vector store what is the that chunk that is relevant to your prompt. And that gives you the context and that's sent to the LLM on the other hand you can do this much more in much more difficult way much more complex way there are different techniques such as. As vector store indexed your article indices hypothetical questions and so on context enrichment right I will show you actually all of these. And post retrieval you can do also some other stuff some such as re renting re ranking so let me give you a brief on what what they understand what they what they mean. So the economy may look actually like this when you when you do a search within your vector store you're not only retrieving that important chunk of data but you're actually looking forward and see where does that chunk come from what's the document that comes from. So if you don't have large documents for instance you have some some some confluence pages which are limited to four five ten pages let's say. By searching through them will not give you relevant answers because they may have many ideas many concepts there so that's why you need to split them by concept but then you still need to pass the whole context to the LLM. And that that gives you this. Where is the one sec okay auto margin retrieval I mean parent document right so you need basically to understand to check. What's the most relevant chunk and then retrieve the whole. All parent document in some cases it might work but there is no one size fits all scenarios you need to decide the time whether your document is too large does it succeed the context window do you want to do you want to do any truncated or do you want only to retrieve that that chunk of data and after you do the retrieval. You may want to see do you want to do reranking so reorganize them but reranking is not done with the same mechanism that helped you retrieve from the database is done with with another LLM so basically asking for the second opinion for the LLM do you think this is really relevant to my question yes or not. Or you can do query transformations so instead of asking a simple question you need to augment your question sometimes imagine the scenario when you are asking about secdom something tell me what secdom does what secdom is. And then after that you come back with another question and say now tell me what do they do and the LLM will will ask you not LLM actually the. The embedding model will ask you will will think what does they mean and it will look to the to the vector store and we do not find anything relevant or we find some everything is relevant today. They do not know you are talking about secdom like so that's why you need sometimes to transform your query every time you are asking the question to go and augment your question and look through the history. And when you look through the history then you understand that's actually talking about secdom and augment the current prompt without user being aware of that. Right. So let's actually see how that looks in practice initially I plan to switch the screen while I was talking on both slides and code but because it's not that easy to have them all on the same screen and I need to always release it. I showed you the slides and now I'm looking through the code. So let's imagine we let me give you a brief walk through to the code to the code structure right. So we have we have the API section here API basically. Yeah, I press the shortcut maybe that stopped me. Do you see my ID now? So now you have the API you have the API part is it's it's how I am I'm building the present points so we have chat we have chunk data we have add to quadrant this is the way we index and add to vector store we have the apps create and store it's not on the scope for today session but you can do a web scraping you have search quadrant so you'll see how the retrieval works. Then other than that you have the config file which has multiple parameters so I build this in a way that we can play with multiple multiple stuff here such as enabling disabled in the history management changing the size of the history. The history is basically an attached the an attached an attached. Knowledge base but I I prefer to use it and not only me like it is a practice to use it separately and then the knowledge base because knowledge base it's something very large where you are searching through it on some similar parts while history are passing most of. The questions and answers or you are passing some some last newest on that list some other configurations here not relevant at this point then we have the core part where we are actually building this app also not relevant to our context I'm choosing to use fast API and points. Then we have some helpers and I'll get back to this actually they're not relevant at this point but it's important for you to know that they exist we have integrations for some vector databases such as quadrant such as chroma phase we use for today's example quadrant. We also have integrations with different elements and I have here multiple providers such as Olama open AI just for convenience I'm using open AI. These providers are handled by using this element interface so element interface gives us a handler which allow me to switch through either this or that. So it has some lambdas that it's passing it's invoking the the the methods and passing the arguments. Further we have resources yeah we'll use this we'll see the how the chunking works how the text was chunked let's me remove this for now it's not relevant then we have some services and here in the services are actually our logic agent AI it's the core part the orchestrator of everything but I don't know that we have augment or we have retriever part we have a text text chunking logic. And some other stuff which are not relevant necessarily at this point and then we have some utils it's an environment check we don't need this as well. So let's say we go now and address the question. Screenshots have stopped okay so every time I'm pressing a alt p to to share the yeah interesting every time I'm I'm I mean enabling or disabling the presentation mode in Intelli J it triggers also some zoom shortcuts that's why. Okay let's say for now we want to do this chunking. So we have we have a postman instance here I hope you can you can see that right. So let's say we have a text seclude is an international blah blah blah what do we see here is that we have this I just copy this from from Wikipedia right so definitely not convenient because it's noisy to have this here. Is this repo open can we access it it's not it's not open publicly but it's open for cyclomers and definitely I can share that with you. Yeah so I definitely this is academic material you can you can you can use it to play with it more. But for especially for experience most experienced engineers here I think you're all able to understand the level of maturity of that code it's mostly POC's. Let's say we want to junk this. This text actually wait it stops the application it starts let me start it. Okay it takes about five seconds but we'll need to start. 10 seconds. How am I any success in allowing me to share the whole whole screen. What if I choose to windows can you now see both this in interlige. Yes cool interesting at least that is good. So I'm reshaling this and the and the chrome window. Okay let's see if the app started actually. I think I have some other heavy processes that are that are running let me close some of them. Anything LLM. Maybe LLM studio I can close it as well. Okay so now it started right we can go in in postman and ask. Ask the app to do the chunking so what we do it will do it will take this text. And we'll. We'll split it in some some smaller parts you see. So it didn't only split it in multiple parts. But actually it removed it removed the noise as well you see the this three eight nine ten whatever. Staff are here words split by. Actually they were included in the same chunk so. What happened here it's actually this chunks were augmented so we have now a rewritten. Version of it which is less noise less noise here and this is a good practice because sometimes if you are scraping the web especially you will get this noise. Let me show you how it worked. I hope it did not stop the screen if I'm. No we can see. You can see but you cannot see any more the interlige. Okay now can you can you see the interlige window yeah we can. Okay so what happened here it's. Last API. Okay so we received the in body the payload right. And then we took this text this input text. We pass it to the to the chunker. This is a chunker object which has a chunker chunk text mechanism. So chunk text basically takes this text. And it's checks if if I have. I have this method enable variable chunking implemented. If we look in the config file we will see that. Chunking has the enable variable. The flag turn false but semantic it's true. Right so you definitely just keep this part. But it will go to this semantic. And what it will do it will invoke the semantic chunking. Method with the text. And then. After we do this. We have our input text here. We are setting the threshold. So we are we are basically describing what what what do I want. To consider different if in into the embedding space. Two sentences are. Having a distance higher than 70%. Let's say. They are considered totally new concepts. So they are included in the different chunk. Right so I'm passing this this parameter to the. Splitter from Lama index. And I'm choosing the semantic model which is also. Configured get embedding model this one. You can see it here actually. Get embedding model what is that. No it's sorry it's it's coming from. Semantic model. Okay it's here so it's using open AI to do the embedding. So after we do this after we do the splitter we get some nodes. This is how Lama index call called on this this. So I'm getting the content of these nodes. Next time I will enable debugger actually but it just starts. Much more slower and we will lose time. We have the chunks now after we have the chunk basically we can come back to this to this method. Semantic chunking. I'm logging them right. But then we will we'll call the extent. The extent method what what does it do it takes all these chunks. And invoke the extent. Sorry. Oh actually it's adding to the chunks. No I thought it's it's another method that I I written to augment this. But it goes actually further. Here in case if we have in this chunk list if we have some duplicates it will be removed. And only then we will we will check if the augmented chunk flag it's it's enabled augmented chunk. It's here so if the augmented chunking is turned through then. Then this will call augment chunks. It's a static method from augmenter and it will actually what as you do it will return the identity chunk. Minitally return the same thing on one hand on the other hand it will return the enrich chunks and the summarize chunks. So this enrich chunks. We'll take a prompt. We'll pass my my chunks. And this prompts. To an LLM and we'll say you are a helpful assistant help me rewrite this and expand it for giving us more context. And after we have this where it we are doing the summarizing the same way. We are returning all these augment answers to the unique chunks. Maybe we maybe we could do again another another check for duplicates but it really is the case to add a limb to return the same thing. You can imagine the probability is almost zero. And then we are exporting the chunk to this reason file. Which is actually here in resources so we can see them here in the same manner as we saw in. Postman. Now the next step would be let's add them to cadrant so cadrant looks like this. It's here. It's our vector store currently doesn't have anything but but if I go to. If I go now to postman and call this add to cadrant method. Stop presenting mode without p. Let's see can I do this. I don't know without shortcut. Now we can look in the logs here. No it's still. Wow. It still stopped. So now we can look how this chunking works. This is exporting six chunks as well. It does the same thing but it's not only storing them. It's going to the vector store. After it invokes this summarizing and enrichment. Proms right it goes to the vector store and it's saving. And then it's saving to the to the JSON file and creating new cadrant collections which is called source text. So if you go here refresh it will have our. Our vector store is important to notice this 100. 1000 536. Is the size is the number of dimensions actually this this vector have. So. This is also configurable. It's here you see the vector size. And it's important because when you you do next time. Do the you can apply this. When you when you do the vector search it will the cost and similarity with you to lack against the same number of dimensions. Can we see any overlapping chunks you want to see or it's a question if it's if I put it is possible. I thought with chunk in there will be you didn't mention it but there is maybe often chunks like 50 characters to  keeping. It's whether we can see it's in the representation or is it something else. No I'm using for yeah I can show you. I'm using for the presentation sematic chunk because the most powerful and this is how our chunks look like cyclones international software. Right this is how it split by by ideas and this is how the enriched or the summarized chunks look like. Now if we go and ask a question actually what we can do is to go searching cadrant and say who own cyclone. It will retrieve you the most relevant chunks. It will be basically all of them. Who is the owner of the company called maybe. Yeah it will give all of them relevant but if I change threshold to 85. It will give me only three relevant chunks. Nothing you to be. I know them will specify that there is any owner. So if I go now to open a open web UI here I can even link. Maybe external or where is that sec. I can even link open web UI to my model and ask replace basically the postman with this who owns. Cyclone. And it will probably give something that it had it in within its weights. Okay nothing no name. But in addition to that what we can do is to add another phrase here and other sentence. Cyclone is a Japanese company and the nationality of this owner is Korean whatever called Alex. So I can go and add to cadrant this as well. Maybe I need to remove this. Okay so now if I'm rebuilding this. Maybe I can go back to cadrant. Clean up the collection. Maybe I can go actually go back to the app and instead of Augmented chunk I can I can disable it. We'll see an example of how the variable chunking looks like Thomas if you're asking about this. So now if I'm restarting the app it will not do the augmentation anyway of the chunks. It will simply give me. The split on the on the on the chunks that I am using here as example and I expect it will give me actually two chunks. One is the first part where describing Cyclone the second one is about the ownership of the company. So I'll give you the moment to start. Probably is because of zoom earlier it works. I mean the morning it worked much more faster. But I didn't have so many things open. Let me see if I can close some of the apps. But I cannot most of them are useful. Okay. Performance where is my? Yeah I have 29 out of 32 gigabytes of RAM full. Probably some residual stuff from Chrome. Yeah even IntelliJ it's 5 gigabytes. Anyway it started. So now if I'm going and I'm chunking this part it will not augment it anymore. It will add to cadrant it will index to cadrant this it only gives us two chunks. Let me see if I can. So one is it's exactly about the headquarters. Okay and the other one is about some general information about it where we have offices and about the Korean owner. Now if we go back to this and ask the same question. It will of course answer more aware of the of the new context because this has changed. So Ciclum is owned by Alex with Korean right. Pretty interesting. So now why does that change because here in cadrant we have different source. And we have different nodes. We can actually even see the graph the knowledge graph that dependency we have only two nodes but this is this is the dependency between them. And you can even see how how the vector look like. You see this is the default vector. So this is how actually the numerical representation of each sentence is stored. Imagine the example that I gave you had only two dimensions right. Only this one only the first one and the second one it was describing either if a concept is natural or artificial or the other and if it's static or mobile. Now you have 1000 dimensions 1536. So it describes a lot of other stuff but we don't know actually what what they describe because it's I'm using. Open AI text embedding add a zero zero to. But there is also the opportunity to use something like sentence transformals all mini L L L six blah blah blah this has one thousand twenty four dimensions. It's a bit smaller but still very powerful so you can go here and read. About these dimensions right what is what do you mean how it was trained this is not answers and it's also pretty powerful embedding model. Now if you if you're asking about other ways on how to do chunking let's say we are disabling the semantic part and we are enabled the the variable part. We have max two sentences max 120 words maybe let's say max 12 words and max characters 50 characters right. So if I'm restarting this instead of instead of testing each sentence if they if they are related within this text embedding add a zero zero to space. It will simply ignore that it will just look where the sentences are ending and starting. Okay started even faster and  why that why is that is because I'm using a lazy loader for the embedding model. And the embedding model here it's it's it's an open AI but in fact it's actually loading other embedding models that are in the virtual environment. Anyway now if we if we go back to this. Wait I lost okay I'm removing everything from the collection again and I'm re-indexing this this will work much faster. Because it is just instead of for for chunks is just splitting them by by sentence by by variable whatever the dimensions I gave there so it will not have more than 12 words unless it exceed this characters. Let me show you how it how it works. So enable variable. The flag was here okay so the flag is here so it goes and do this variable chunking I hope you can see the code this way. Otherwise I need to read so it using this stunts to determine where the sentences it's ending. And then it has it it has a simple like traditional algorithm on checking whether the max word the max and the season mask characters are exceeded. And just. Take the longest the longest match. So the chunks will look like this. One two three four five six seven eight nine ten eleven twelve. Hmm I have a problem problem in the algorithm because it has more than 12 words that's interesting I never actually tested this. Yeah. It's probably because it actually allows to sentences and stands up consider to sentences like this anyway we have different chunking now clearly. But there is a risk because if you have large documents you may split ideas. Okay so let's see how the retrieval part works now. You can use in the same configuration and ask again who own cyclone. It will definitely find the relevant chunk let's see what is the relevant chunk. Yeah it found this so vector search retrieved two results. Cyclome is a Japanese company blah blah so it retrieved this one with the score 085 complexity similarity the other one cyclome is international software so it passed both these chunks. It alongside with with a prompt any yeah it is responded pretty accurately. Now let's walk through a bit to see how. How this is happening the retrieval part so when we go again to fast API. Okay when we go and address the question it's actually where is that it's it does search quadrant this is something that is invoked when we ask a question right but let's see how first how the search quadrant works. It takes the the body of course it looked through the text and the thresholds that were passing so remember. When I'm asking search quadrant I'm passing the thresholds similar to threshold 085. The limit how many chunks I want to return let's see I want only one it gives me only only the best one the best match if I am adding to if I'm adding five it will probably give me only two because only they are exceeding the threshold. So you have this and then you go to the vector store and search similar call this search similar using your text and threshold and so on. Search similar looks like this. It takes it takes a search it has a it's encoding it as a vector right and then it's addressing the question to the to the quadrant client it does this search which looks like I don't know if the package or what. But it works it will be removed in a feature okay it's marked removed. You have the query vector so basically you translate it the text into we can log this we order we can we can put a break break point here to see how the query vector looks like but it will be that 1000 something 500 numbers. And then this will return some results and we look on this results to make sure we want only those that are exceeding the threshold but then we will also we are also be sorting them right after we do this search similar we are returning it the result here when we if we do a deny if search but in chat actually things are working differently. So when when you go here instead of postman when you go here in the chat and ask the same question. Okay let's let's address actually the exact same question it gives us only one result. But in reality I'm not using I'm using 0.7 I guess in the application yeah so when I'm addressing this question. Is it the LJ okay you can see that we go with we go with the with the chat request whatever we have the user input we are. We are using this format response whatever agent respond so after we have the response we are we are. We are for Martin get for for another app actually not this open web UI open web UI has another end point but it was the same it calls the same stuff let me find it here yeah it's here the models chat completions. The completion yeah so it open web UI calls this which gives us the agent response method so the the prompt prompt text initially address is going to this respond. Now in the response I have the method handle conversation which take the user input handle conversation gives us an initial response after it it calls generate answer now this generate answer is is based on the user input but it's also based on some knowledge some knowledge that we are. We are we are building at the runtime always so we are calling this knowledge setup method the knowledge setup method has multiple losses first of all it is it is using a prompt to look through some sources and the source we are looking what what is the source that we want to look through into the configuration by default it's using the file. So the file actually looks like this I have a fallback config for the file for the agent knowledge it's a Jason file which has some some stuff some I don't know some random data actually. It doesn't have anything related to cyclone in case if the call to quadrant fails it goes to this it can go to any singles you can build any logic here it's like any traditional application actually. But in in a config file here I actually selected the source it's quadrant and the threshold is zero seven and the limit is three and then I don't want to do re rank I will show you how the re rank also works or I don't want to do alternative prompts. If I'm building here if I'm moving this to five for instance it will not only address my question and look through the knowledge base to find something similar but it will expand my LLM. It will expand my LLM to. To handle more prompts that are related to that. So this knowledge setup basically goes. Call the retriever method and the search. The search method goes to search similar vector store which you you you saw earlier. But then after you have the results. You check if the re rank is it enabled and if it's enabled you go here in the re rank chunk method and you are using another prompt you're using another LLM to verify if the below fragments are relevant and the return re order them. And after you are re ordering them actually you get the proper order of them and then you are cutting the the the response list to whatever you are truncating it to whatever you want like the top three most relevant after you did the retrieval from the vector store and the retrieval from the re ranking with the LLM. In case if that this doesn't work it will give you something from the from the Jason file. So after you do the the knowledge setup part you are generating really the answer and the answer basically is built on the knowledge. And on your user input here. But they both combined are actually passing through a prompt builder which is giving you something. Build from multiple multiple sub components so instead of passing to the LLM only your prompt you are adding some additional stuff such as behavior knowledge some history part. Right and then you have the build method which organizes them nicely but by being aware of the token budget. If you have some limitations here on the token budget. So after after you have this you have the messages basically you build the prompt but actually by building the prompt you are building some messages that we are sending to the LLM. So this generate message messages. Generate answer retrieve this messages which are the answers from from the LLM. And you have the initial response which you are returning directly. On the next on the next iteration of this session on the agentic part we will see how to expand this so we can do more than just providing the initial response we can enforce some guardrails and some other stuff. Right. But so far I believe we covered the way we are. Quaring and returning and retrieving answers and we were putting them into the right context so we can get answers like this. We are instantiating one instantiating an version of open web UI and we are pointing it to our model here. Right. So we can enable an example any model we want I also have all of my running locally I also have LM studio open web UI talking to all of them. And on on on on on the client side we are working this way because. You will see on the next session actually there are some other decisions that happen when you are asking a question we are checking if there are very confidential information or not. If they are we are replacing them with a local model and then we are passing that question. To a cloud model because it's much more powerful in terms of providing more more meaningful result. So by by that being said I think. The current session stops here. We will continue next part with expanding this regard architecture to an agentic one. I think the the next session on this topic expanding this topic is in it's in two weeks. But if you have any questions I still have 10 minutes and oxana I'm really sorry for this I thought we are and we have until 5pm. I was not aware that we actually finished a few minutes ago. But thank you for staying with me and for those that that already dropped. Definitely they can they can watch the recording. Any question? Let me see if there is anything I missed any question I missed. I have one in the chat so about the embedding vector. How do we select features? So you showed for example like natural or artificial mobile or not mobile or in the is it bound to specific embedding algorithm and it is always this feature. Or do we learn okay? It depends. Open a have their own closed model their own features you don't know which they are. You don't know how they are training them actually how they training them is not that it's not that. M embedding models. Hello. Yeah so embedding are  shallow these are neural networks which are not do not have more more. Hidden layers let me find a relevant diagram here if not I can prepare it for the next time. Wow such a long text with nothing. Yeah. So when when if you remember the last discussion on neural networks. Actually do not have it with me this time you had it with a storage I guess but  there are some some multiple layers. So embeddings are actually the ways of a single layer and these these embeddings model are neural networks with they are called shallow. With a single hidden layer. They are actually embedding words so you can you can check for instance models like word to vac. You see this is the single layer this this this new architecture that are leverage within. Sentence transformer or open a idea are also transform architecture models. But the way basically the way they are building these features are dynamic and they are emerging based on the content that you are serving on the on the training phase. So there is no you can look on some papers for instance enter transformer the model that I showed you here which is open source. And you can see how they are choosing this how they are choosing this dimensions but for open iPhone instance you don't have them. And for each of these model the dimensions will be also different and that's why every time you are changing the model you will find different similarity scores. We can even do this exercise now. I'm not sure if it's not relevant anymore but if we still use exactly the same chunk. We will get different scores here in similarity. Right if we are changing the model. The problem is I'm changing the model I need to change also the the is not here. Chunking what is the chunking part. Ah here quadrant if I'm changing this model I need to change also the vector size I need to re index them as well. Yeah thanks. But you will definitely get different similarities. It's just it's very strange that we are discussing very much about the models and how they are great and which is bad the best but we are not discussing. The best embedding is the best embedding vector embedding model which is extremely important. It's absolutely important and you will see that even open AI have. Just release I think the last one is 3000 let me let me see open AI API. 3000 96 I guess for developers API pricing embeddings. Open none of our models. Embed embeddings come on not here are in. EPA platform. I'm not logged in okay. Although I thought I am actually M so models okay. Embeddings okay so this one text embedding three large. This has. I don't see you work. Ah you don't see that let me see if I can sure that one as well. Okay. Do you see now this open AI okay. Okay. So text embedding large three. It's 3772 us not I don't know why I remember something else but 3000. So these are much more higher than the higher the bigger they are here the size really matters the bigger they are. The most flexibility you have on defining what similarity means because this is really subjective even for two of us if two different persons you will ask them to classify two concepts give me. We can do this exercise we can based on the group chat right I can ask you now give me the similarity score between how how similar. I'm not sure. Percent percent in percentage how similar do you think a river and a canal is in your own language is it hundred percent 60% I would say it's 75% for instance right. Maybe someone else can give other other opinion so. This is the way we are perceiving the word the way we are actually deciding. How similar to concepts are it's actually describing our understanding of the world and the way we are mapping all the concepts into the hyperspace. And follow up question about do we calculate embeddings for a word or for the whole chunk. Absolutely for the whole chunk yeah that's the that's the thing because. How did started is started with the word to veck they were basically training against it's simple right you can brought for the language you have one thousand two hundred one hundred two thousand. One hundred twenty thousand words in a language if it's a big one English has maybe some word like one million words but you can brute for a seat easily. And then you can see the indifference sentences how often a word comes close to another word right so you can determine how similar they are or how opposite they are because of this relation. But then how do you brute for the whole all the all the potential combinations you cannot actually by using any any traditional LLM with a single layer. You are actually using another transformer architecture which is in fact. Another LLM if you like but it's it's just training instead of being instructed in responding into specific format as the LLM are. They are they are mapping this this concepts and the concept can be a group of words can be a super concept of concept a sub concept of multiple sub concepts of concept. It's it's actually super fascinating how this works. So basically this last question interview will be 10 no no problem. So this  like in this oversimplified videos about how chat GPT works they are telling that it just gives you the word and then selects the next word like with the highest probability like something like this. But basically if embedding is done for the chance chat GPT is basically selecting the next channel. Now don't make don't don't don't make the confusion between how transform model transform model actually generates next token. So what it does I thought you were discussing this in the LLM session but we can address this next time as well. So for instance you have a transformers visual I think explainer this visual visualization OK. Long story short what does it how does it work? Come on. This has I have the visualization here. Yeah I have it. So this has basically some data input right which is which is splitting to tokens and it responds with some. It gives you some no I need another visualization actually transform or stay with me a bit. Visualization OK this one. So these are actually this transform and this is just GPT 3 GPT 2 maybe it's more relevant right so these transformers architecture are actually collections of the same screen yeah are just connections are just collections of neural networks here are some. Embedding one sex self attention MLP OK this MLP is a multi layer perceptron which is. A neural network and that new I can send you also YouTube video on that for the previous session. These are making predictions you are training them and they give you some predictions they give you based on an input what is the expected output right. If you have this. When you pass a word when you pass a sentence it this MLP will give you for for a specific part will give you some predictions right. And then the other one the other the other part will give you other prediction that's why this this networks are activated differently this transformer architecture is actually a collection of neural networks. And they provide different answers different estimations and they are all collected in this self attention mechanism which are actually some some matrices this matrices further. Have you see this attention head is basically collecting the outputs and if you put more attention heads. If you are doing an operation something like imagine the product of a matrix. If you are if you are aligning them you are predicting some tokens and then those tokens will will return to you to some probabilities. Now if you want to change the behavior of these probabilities you can adjust either the way you are training the whole the whole network so the whole weights and biases of them of the neural networks all neural networks. Or you can do some adjustments here so this matrix is so basically when you get some numbers here 0.7.4. So you can adjust them to 0.5. And this is what we call Laura low ranking. So then you can play with this alter them a bit. And retrieve some probabilities of the next token. And based on the one you choose let's say I want to choose the the one with lower probability it means you actually have another parameter which we call temperature it gives you more creativity because actually it allows one of the token. Not to be necessarily the preferred one of the most the most relevant one for the LLM but if you choose here during a prediction during a sentence that is predicted if you choose a third word with the fourth probability then the next of the future sentence will be changed as well it will be impacted. Now. This is the way how and how how this transformer how the LLM to work but the embeddings is different because it happens in a rug even before you you are a step. Right before you put the input data visualization and powers to this is our input you are actually building this input by giving a prompt from an user and finding into a vector store some relevant context which are. Covering that prompt and only then you are you are reaching this step and then the LLM does the prediction for you does the prediction for each multi layer perceptron. Collect them into attention heads play with them approximate them if they want quantize them and then gives you the probabilities of the of the responses and then you choose one of them of the token and then goes next and next in the loop. So, but this probability is for next words they are affected by where I am in this embedding vector space. Is it a space as a no. Okay. Actually not because the embedding vector space is just to find to find to find you to match you the. Or you are talking actually about this embedding because they are using the initial step so as I understand like to. Okay, I'm taking too much time but sorry guys or 17 people who are still here so again we have this initial question like I mean what is the meaning of life. Yeah we calculate the embedding then we find some spot in the embedding space like with some similar I mean context or answers yeah and then we proceed to actually this MLP layer which just. Select the next world probability but to the context of this embedding space spot that we are in. Yeah, but they are to independent infrastructure items here is the LLM here is your vector store right you are asking the question you go with a query find something relevant in a vector store. It can be any text you can even skip this step you will still have some context here which you are sending the prompt plus context. It's still there it's either you are bringing it from here or it doesn't matter for LLM it doesn't know it's the black box what happens before this step. So at this point you will have just a text which the text looks like you are intelligent agent that knows that cyclone owner is Korean and the question is. And the next the next sentence who is the owner of cyclone that's what LLM receives and then based on what it receives it passing to the to each MLP MLP gives its predictions passing through those attention head which are. Some matrices and then this metices have some operations you can you can think of them like products of actually they are products of matrices and gives you the. The further is the response right so it basically a collection of responses from multiple neural networks. The way is transformed yeah. So basically embedding is generating this first part that telling you are somebody with something and then it just proceeds to yeah but then here are the and trans of the LLM you also have indeed an embedding. You need also to convert to encode your text into something which is a list of tokens right this is another embedding but it is independent to this one. So basically a wrapper of LLM. Thank you very much for all relevant questions I think even though some people dropped they they will still find the meaningful the questions and the discussion and might be able to follow up later on this. I will talk to I will work with with oxana to send you follow up. Takeaways and materials on the group and after the next two weeks you will also get some homework assignments that are related.

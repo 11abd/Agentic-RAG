@@ -1,4 +1,148 @@
 
+--- Architecture & Design Patterns.pdf ---
+
+1
+Place for photo
+RAG Architecture & 
+Design Patterns
+October 2025
+
+2
+Speaker
+Lucian Gruia
+Data Science Principal Lead
+●
+Head of Engineering, Romania
+●
+13+ years of experience in Software Engineering
+●
+Led cross-functional teams across 8 time zones in 
+Telecom, Fintech, Aerospace, and MedTech
+●
+Mentor @Google Developer Groups Romania
+●
+Research Assistant, AI Multimedia Lab (National 
+University of Science & Technology, Bucharest)
+●
+Supervised 12 BSc and MSc diploma projects
+
+3
+Agenda
+01
+02
+03
+04
+Data Chunking
+Advanced Retrieval
+History Management
+Reasoning & Context 
+Awareness
+05
+Coding RAG
+
+4
+Data Chunking, Advanced 
+Retrieval
+
+5
+Data Chunking and LLMs
+LLMs also have a limited capacity for context. 
+Just as humans cannot digest unlimited context, these models have a speciﬁc size limit for the content they 
+can process.
+So, what about situations involving very large amounts of data? 
+Consider a speciﬁc use case, such as a book. It's too large to pass the entire book as the context for the 
+current prompt, so it needs to be divided before being stored in the database.
+This process is known as data chunking.
+Types of Data chunking (by size):
+●
+Fixed-size
+●
+Variable Chunking
+●
+Semantic Chunking
+5
+Generated with DALL·E 3
+Read more: Data Chunking Strategies in RAG
+
+6
+●
+Store, index, and manage high-dimensional vector data (aka Embeddings)
+●
+Perform similarity search
+○
+Cosine similarity
+○
+Pearson Correlation
+○
+Levenshtein Distance
+○
+Jaccard Similarity
+○
+Euclidean distance
+○
+Dot Product
+○
+Minkowski Distance
+Vector Databases
+6
+Images source: Datacamp - The Top 5 Vector Databases
+
+7
+Advanced 
+Retrieval
+
+8
+The retrieval component is responsible for sourcing 
+relevant information from a database or document 
+collection based on the user's query or input. 
+This information is attached to prompt and passed to 
+the LLM as an enriched context.
+Retrieval
+8
+Techniques
+PERFORM RETRIEVAL
+●
+Vector Store Index
+●
+Hierarchical Indices (summaries associated)
+●
+Hypothetical Questions and HyDE
+●
+Context enrichment
+○
+Sentence window Retrieval
+○
+Auto-merging retrieval (aka Parent-Document)
+○
+Fusion retrieval/hybrid search 
+POST RETRIEVAL
+●
+Reranking & Filtering
+●
+Query Transformations
+○
+Step-back prompting
+○
+Prompt rewriting/Reformulate
+●
+Evaluation
+Images sources: TowardsAI - Advanced RAG Techniques: an Illustrated Overview
+
+9
+History Management
+
+10
+Reasoning, Context 
+Awareness
+
+11
+RAG Architecture
+
+12
+Coding RAG 
+apps
+
+
 --- Databases for GenAI.pdf ---
 
 1
@@ -334,6 +478,285 @@ doc changes)
 5. Evaluate systematically (not 
 "vibes-based")
 Production Best Practices
+
+
+--- Productized & Enterprise RAG.pdf ---
+
+1
+Place for photo
+Productized & 
+Enterprise RAG
+October 2025
+
+2
+Speaker
+Lucian Gruia
+Data Science Principal Lead
+●
+Head of Engineering, Romania
+●
+13+ years of experience in Software Engineering
+●
+Led cross-functional teams across 8 time zones in 
+Telecom, Fintech, Aerospace, and MedTech
+●
+Mentor @Google Developer Groups Romania
+●
+Research Assistant, AI Multimedia Lab (National 
+University of Science & Technology, Bucharest)
+●
+Supervised 12 BSc and MSc diploma projects
+
+3
+Agenda
+01
+02
+Existing repos & products
+Pros, Cons, Limitations and 
+Considerations
+
+4
+Quick recap
+
+5
+What is RAG
+A RAG system essentially correlates a user's 
+prompt with a relevant data chunk. It does this 
+by identifying the most semantically similar 
+chunk from the database.
+This chunk then becomes the context for the 
+prompt.
+When passed to the Large Language Model 
+(LLM), it enables the system to provide a 
+relevant answer within the given context.
+
+6
+Why do we need RAG?
+●Expands 
+Knowledge 
+Base
+RAG accesses a vast external database, enriching its knowledge 
+beyond initial training data
+●Improves 
+Accuracy
+Enhances response precision by integrating relevant, real-time 
+information
+●Adaptable
+Effectively handles novel and niche queries
+●Increases 
+Efﬁciency
+Streamlines information retrieval and generation process
+●Versatile 
+Applications
+Useful across various ﬁelds, from customer support to research
+Source: What Is Retrieval-Augmented Generation, aka RAG?
+LLMs are limited to the knowledge they were originally trained on, and retraining or 
+ﬁne-tuning them is slow and expensive.
+
+7
+●
+Embeddings 
+Numerical representations of concepts, in a high-dimensional space, capturing semantic meaning.
+●
+Similarity:
+○
+Lexical: entities are alike in appearance
+○
+Semantic: entities are alike in meaning
+●
+In RAG we represent entities by describing them. 
+This is a form of knowledge representation.
+Embeddings. Similarity
+Example: Mountain, River, Canal
+One hot encoding
+Mountain:
+1
+River:
+2
+Canal:
+3
+2-Dimensional Space 
+[Natural vs Artiﬁcial, Mobility]
+Mountain:
+[-0.7,
+-0.8]
+River:
+[-0.3,
+ 0.7]
+Canal:
+[  0.4,
+ 0.5]
+Read more: Wikipedia - Cosine Similarity
+
+8
+Multilinguality
+●
+Multilingual Capabilities
+RAG and chatbots can process and respond in multiple languages, enhancing global reach 
+and accessibility.
+●
+Cross-lingual Understanding
+These systems understand queries in one language and retrieve information in another, 
+facilitating cross-lingual interactions.
+●
+Language-Agnostic Embeddings
+Use of embeddings that capture semantic meanings across languages.
+●
+Challenges
+Handling idiomatic expressions, cultural nuances, and varying sentence structures in 
+different languages.
+Generated with DALL·E 3
+
+9
+Existing repos & products
+
+10
+10
+NotebookLM
+
+11
+11
+GEMs
+
+12
+12
+Custom GPTs
+
+13
+13
+LM Studio
+
+14
+14
+Anything LLM
+
+15
+15
+OpenWeb UI
+
+16
+16
+Glean
+
+17
+17
+Sourcegraph
+
+18
+Pros, Cons, Limitations 
+and Considerations
+
+19
+19
+✅ Pros
+●
+Enhances factual accuracy via external knowledge
+●
+Reduces hallucinations vs. pure LLMs
+●
+Enables dynamic updates without retraining
+●
+Modular, domain-adaptable architecture
+●
+Scalable across multimodal or multi-source data
+Pros & Cons
+⚠ Cons
+●
+Retrieval quality depends on data prep & 
+embeddings
+●
+Latency increases with retrieval pipeline
+●
+Requires infra (vector DBs, indexing, chunking, etc.)
+●
+Context window still limits answer depth
+
+20
+20
+🚧 Limitations
+●
+Not reasoning-ﬁrst, still retrieval-driven
+●
+Poor handling of implicit or fuzzy queries
+●
+No built-in memory or learning from feedback
+●
+Struggles with conﬂicting or outdated sources
+Limitations & Considerations
+💡 Considerations
+●
+Balance retrieval vs. generation cost & latency
+●
+Continuous evaluation of relevance & drift
+●
+Governance for data freshness and accuracy
+●
+Potential upgrade path: Agentic / Tool-use RAG
+
+21
+Enterprise Data Protection and Privacy
+●
+Safeguarding sensitive information and maintaining customer trust.
+●
+Regulatory Compliance: Adherence to laws like GDPR, which mandate data security and privacy.
+●
+Encryption & Anonymization: Secure data and protect individual identities.
+●
+Access Control: Implementing strict permissions and access policies to sensitive data.
+●
+Regular Audits: Monitoring and auditing to identify and rectify any vulnerabilities.
+●
+Importance of using External Data & RAG models.
+●
+Augment context in order to get accurate completions.
+Image by Jan Alexander from Pixabay
+
+22
+22
+Quiz Time
+
+23
+23
+Q1
+What is the main goal of RAG?
+ A. To train larger models
+ B. To reduce hallucinations using external knowledge
+ C. To replace ﬁne-tuning
+ D. To speed up token generation
+
+24
+24
+Q2
+What is a key limitation of RAG systems?
+ A. They cannot retrieve multimodal data
+ B. They require GPU inference for retrieval
+ C. They depend heavily on data quality and embeddings
+ D. They cannot use APIs
+
+25
+25
+Q3
+What’s the next evolution beyond basic RAG?
+ A. Fine-tuned GPT models
+ B. Static FAQ chatbots
+ C. Agentic or tool-using RAG architectures
+ D. Prompt templates with zero retrieval
+
+26
+Key Takeaways from the session
+Boosts factual accuracy by 
+grounding LLMs in real data
+No retraining needed, 
+knowledge updated via 
+data refresh
+Still limited reasoning 
+and context awareness
+Reduces hallucinations, but 
+depends on retrieval quality
+Latency–complexity trade-off: 
+retrieval adds overhead
+Next evolution → Agentic, 
+monitored, tool-using RAGs
 
 
 --- RAG Intro.pdf ---
