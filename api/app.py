@@ -19,26 +19,37 @@ app = FastAPI(
     version="1.0"
 )
 
-# ---------- Agent Initialization (ONCE) ----------
-logger.info("Initializing Agent components")
+# ---------- GLOBAL AGENT----------
+_agent = None
 
-rag_tool = RAGTool(ask_rag)
-planner = Planner()
-executor = Executor(rag_tool)
-reflector = Reflector()
-evaluator = AnswerEvaluator()
 
-agent = AgentLoop(
-    planner=planner,
-    executor=executor,
-    reflector=reflector,
-    evaluator=evaluator,
-    max_retries=2
-)
+def get_agent() -> AgentLoop:
+    global _agent
+
+    if _agent is None:
+        logger.info("Initializing Agent components (lazy)")
+
+        rag_tool = RAGTool(ask_rag)
+        planner = Planner()
+        executor = Executor(rag_tool)
+        reflector = Reflector()
+        evaluator = AnswerEvaluator()
+
+        _agent = AgentLoop(
+            planner=planner,
+            executor=executor,
+            reflector=reflector,
+            evaluator=evaluator,
+            max_retries=2
+        )
+
+    return _agent
+
 
 # ---------- Request / Response Schemas ----------
 class QueryRequest(BaseModel):
     question: str
+
 
 class QueryResponse(BaseModel):
     answer: str
@@ -49,7 +60,10 @@ class QueryResponse(BaseModel):
 @app.post("/query", response_model=QueryResponse)
 def query_agent(request: QueryRequest):
     logger.info(f"API | query_received='{request.question}'")
+
+    agent = get_agent()
     result = agent.run(request.question)
+
     return result
 
 
@@ -59,9 +73,16 @@ def health():
     return {"status": "ok"}
 
 
-
-# ---------- Run pipeline  ----------
+# ---------- Run pipeline ----------
 @app.post("/pipeline/run")
 def run_pipeline():
+    global _agent
+
+    logger.info("Running RAG pipeline via API")
     run_rag_pipeline()
+
+    #reset agent after rebuilding vector DB
+    _agent = None
+    logger.info("Agent reset after pipeline run")
+
     return {"status": "success"}

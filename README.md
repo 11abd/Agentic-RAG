@@ -1,144 +1,217 @@
-# Agentic RAG System with Autonomous Reasoning and Self-Reflection
+# 🎓 Agentic AI Knowledge Assistant
 
-## Overview
-This project extends a traditional Retrieval-Augmented Generation (RAG) chatbot
-by adding an **agentic control layer** capable of autonomous reasoning, tool-calling,
-self-reflection, and answer quality evaluation.
+This project extends a previously built local RAG chatbot into a full AI-Agentic system capable of autonomous reasoning, tool-based action, self-reflection, and transparent evaluation.
 
-The system is **data-agnostic** — any data placed inside the `data/` directory
-(PDFs, transcripts, text files) can be used without changing agent logic.
+The system is designed to demonstrate real-world agentic AI foundations, not just retrieval or prompting. It focuses on correctness, inspectability, and modular design rather than latency or cloud scale.
 
----
 
-## Problem Statement
-Standard RAG chatbots blindly retrieve documents for every query and may:
-- return shallow or irrelevant answers
-- hallucinate when data is missing
-- lack transparency on answer quality
+## 🎯 Capstone Objective
 
-This project addresses these limitations by introducing an **AI agent layer**
-that controls how and when retrieval happens, evaluates its own responses,
-and transparently reports answer quality.
+ > Build upon my previous RAG chatbot (https://github.com/11abd/rag-chatbot-genai) to develop an AI-Agentic system capable of performing autonomous reasoning, taking meaningful tool-based actions, and reflecting on its own decisions and performance.
 
----
+This project satisfies that objective by:
 
-## System Architecture (High Level)
-The system follows a modular agentic design:
+- Reusing the existing RAG pipeline as a tool
+- Introducing an agent planner
+- Adding self-reflection and retry logic
+- Exposing the system via an API-first interface
+- Logging and evaluating each response with transparent metrics
 
-User Query  
-→ Agent Planner (decides action)  
-→ Tool Executor (calls RAG if needed)  
-→ Self-Reflection (retry if answer is weak)  
-→ Evaluation (scores answer quality)  
-→ Final Response  
+## 🛠️ Technology Stack
+| Layer               | Technology                                 |
+| ------------------- | ------------------------------------------ |
+| Language            | Python 3.10                                |
+| Agent Orchestration | Custom agent loop (planner + tools)        |
+| PDF Parsing         | PyMuPDF                                    |
+| Audio Transcription | OpenAI Whisper (local, CPU-only)           |
+| Embeddings          | sentence-transformers (`all-MiniLM-L6-v2`) |
+| Vector DB           | ChromaDB (local, persistent)               |
+| Retrieval           | Hybrid (Vector + Keyword/BM25)             |
+| LLM                 | Ollama (local models)                      |
+| API                 | FastAPI                                    |                     |
 
----
 
-## Key Features
-- **RAG as a Tool**: Retrieval is abstracted and invoked only when required
-- **Autonomous Planning**: Agent decides how to handle each query
-- **Self-Reflection Loop**: Weak or ungrounded answers trigger retries
-- **Evaluation Metrics**: Measures clarity, grounding, and answer completeness
-- **No Hallucination**: If data does not support an answer, the agent declines safely
-- **Framework-Agnostic**: Implemented without heavy agent frameworks for clarity
 
----
+## 🧱 System Architecture (High Level)
 
-## Project Structure
-agentic-rag/
-│
-├── agent/ # Planner, executor, reflector, agent loop
-├── tools/ # RAG tool abstraction
-├── evaluation/ # Answer evaluation metrics
-├── data/ # User-provided data (PDFs, text, etc.)
-├── config/ # Configurations
-├── main.py # Entry point
+```
+User Query
+   ↓
+Agent Planner
+(decides next action)
+   ↓
+Tool Executor
+(RAG / Pipeline / Retrieval)
+   ↓
+Self-Reflection
+(answer quality check, retry if weak)
+   ↓
+Evaluation
+(scoring & logging)
+   ↓
+Final Response
+```
+
+## 🔧 Tooling & Agent Capabilities
+
+**🔹 Tools Available to the Agent**
+
+ - RAG Query Tool – retrieve grounded answers from local knowledge base
+
+**🔹 Agent Behaviors**
+
+- Determines whether retrieval is required
+- Evaluates response quality
+- Retries retrieval if confidence or grounding is low
+- Produces a final, grounded response
+
+## 📊 Self-Reflection & Evaluation
+
+Each response is evaluated using simple, transparent metrics:
+
+| Metric              | Purpose                                |
+| ------------------- | -------------------------------------- |
+| **Length Score**    | Checks response completeness           |
+| **Clarity Score**   | Measures confidence and certainty      |
+| **Grounding Score** | Measures support from retrieved chunks |
+
+📌 These metrics are:
+
+Logged for inspection
+
+Used to guide retries
+
+Not used for forced optimization or fine-tuning
+
+This keeps the system explainable and debuggable.
+
+## 📁 Project Structure
+
+```
+Agentic-RAG/
+├── api/                    # FastAPI application
+│   └── app.py
+├── ingestion/              # PDF & audio ingestion
+├── processing/             # Cleaning & chunking
+├── embeddings/             # Embedding + ChromaDB
+├── retrieval/              # Hybrid retrieval logic
+├── generation/             # Prompting & LLM calls
+├── agent/                  # Agent planner, tools, reflection, evaluation
+├── utils/                  # Logging & helpers
+├── data/                   # PDFs, audio, transcripts, chunks
+├── vector_db/              # Persistent ChromaDB store
+├── rag_pipeline.py             # End-to-end RAG pipeline
+├── main.py                 # Optional CLI agent
+├── requirements.txt
 └── README.md
+```
 
-
----
-
-## How to Run
-
-### 1. Create Virtual Environment
-```bash
+## ⚙️ Environment Setup
+1️⃣ Create Virtual Environment
+```
 python -m venv venv
 venv\Scripts\activate
 ```
-### 2. Install Dependencies
-```bash
+2️⃣ Install Dependencies
+```
 pip install -r requirements.txt
 ```
+3️⃣ Install Ollama (Required)
+- 👉 https://ollama.com/download
 
-### 3. Add Your Data
-
-Place documents inside:
-```bash
-3. data/
+Verify:
+```
+ollama --version
+```
+Pull a model:
+```
+ollama pull mistral
 ```
 
-### 4. Run the Agent
-```bash
-python main.py
+## 📥 How to Add New Data
+
+1️⃣ Add PDFs
+
+Place all PDF files into:
+```
+data/pdfs/
+```
+2️⃣ Add Videos
+
+Place videos (.mp4) into:
+```
+data/audio/
+```
+🔄 Run the RAG Pipeline
+
+The pipeline performs extraction → cleaning → chunking → embedding → vector store rebuild.
+```
+python rag_pipeline.py
 ```
 
-### 5. Start the API Server
-```bash
-uvicorn api.app:app --host 0.0.0.0 --port 8000
+### What this does:
+
+1. Extracts text from PDFs
+2. Converts videos to audio and transcribes them
+3. Cleans and merges all text
+4. Deletes old chunks
+5. Creates new chunks
+6. Rebuilds ChromaDB embeddings from scratch
+
+✅ Safe to run multiple times
+✅ No duplication
+✅ Deterministic behavior
+
+
+## 💬 Running the Agent
+**🔹 API**
+```
+uvicorn api.app:app --reload
 ```
 
-then we can interact with out chatbot from web
-```bash
-http://127.0.0.1:8000/docs
+Interactive API docs:
 ```
-
-Example request : 
-```bash
+http://localhost:8000/docs
+```
+Example request :
+```
 {
   "question": "Tell me about hybrid retrieval?"
 }
 ```
 
+or it can be run via  CLI
+```
+python main.py
+```
 
+## 🧠 How Grounded Answering Is Enforced
 
-### Evaluation Metrics
+- Retrieval happens before generation
+- Retrieved chunks are injected into the prompt
+- LLM is instructed to answer only from context
+- If grounding is weak → agent retries or responds with “I don’t know”
 
-Each response is evaluated using simple, transparent metrics:
+This reduces hallucination and improves trust.
 
-Length Score – response completeness
+## 🧪 Design Decisions
 
-Clarity Score – confidence and certainty
+- Agent logic separated from retrieval
+- Manual pipeline execution (no background jobs)
+- Local-only execution
+- Emphasis on inspectability over speed
+- These choices make the system easier to evaluate and reason about.
 
-Grounding Score – support from retrieved data
+## Limitations
 
-These metrics are used for inspection, not forced optimization.
+- CPU-only
+- No UI
+- Not real-time
+- No cloud scaling
 
+All limitations are intentional for learning and evaluation clarity.
 
-## Why This Is Agentic (Not Just RAG)
+## 👨‍💻 Author
 
-Unlike standard RAG systems, this project:
-
-reasons before retrieval
-
-treats RAG as a callable tool
-
-evaluates its own outputs
-
-retries automatically when answers are weak
-
-This design reflects how modern production AI agents are built.
-
-## Future Improvements
-
-LangGraph wrapper (optional)
-
-Advanced evaluation metrics
-
-
-
-### Author
-
-Built as part of the AI Academy Capstone Project to demonstrate
-end-to-end agentic AI system design.
-
-Abdul Rahaman S | AI/ML Engineer
+> Abdul Rahaman S   |   
+AI / ML Engineer
